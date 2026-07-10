@@ -42,7 +42,27 @@
   a:hover{ border-bottom-color:var(--link); }
   .paper-title{ font-family:var(--serif); font-style:italic; }
 
-  .links{ display:flex; flex-wrap:wrap; gap:1rem; margin-top:1.8rem;
+  .section{ margin-top:2.4rem; }
+  .section h2{ font-family:var(--mono); font-size:.72rem; font-weight:400;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--muted);
+    margin:0 0 1.1rem; padding-bottom:.5rem; border-bottom:1px solid var(--line); }
+
+  .pub{ display:flex; gap:1rem; margin-bottom:1.3rem; }
+  .pub .year{ flex:0 0 3rem; font-family:var(--mono); font-size:.8rem;
+    color:var(--muted); padding-top:.15rem; }
+  .pub .body{ flex:1; }
+  .pub .ptitle{ font-family:var(--serif); font-size:1.02rem; color:var(--ink);
+    line-height:1.35; }
+  .pub .authors{ font-size:.92rem; color:var(--body); margin:.15rem 0 .1rem; }
+  .pub .authors .me{ color:var(--ink); font-weight:500; }
+  .pub .venue{ font-size:.9rem; color:var(--muted); font-style:italic; }
+  .pub .plinks{ margin-top:.35rem; font-family:var(--mono); font-size:.74rem; }
+  .pub .plinks a{ border-bottom:none; color:var(--muted); margin-right:.9rem; }
+  .pub .plinks a:hover{ color:var(--link); }
+  @media(max-width:460px){ .pub{ flex-direction:column; gap:.25rem; }
+    .pub .year{ padding-top:0; } }
+
+  .links{ display:flex; flex-wrap:wrap; gap:1rem; margin-top:2.4rem;
     padding-top:1.4rem; border-top:1px solid var(--line);
     font-family:var(--mono); font-size:.8rem; }
   .links a{ border-bottom:none; color:var(--muted); }
@@ -70,12 +90,6 @@
       </p>
 
       <p>
-        My recent paper <a href="https://arxiv.org/abs/2607.03692"><span class="paper-title">PIEFS:
-        Physics-Informed Eigenfunction Features with Learnable Scaling</span></a> was accepted
-        to the <b>ICML&nbsp;2026 AI4Physics Workshop</b> (with Timur Lidzhiev and Alexander Tarakanov).
-      </p>
-
-      <p>
         BSc in Applied Mathematics and Computer Science from
         <a href="https://www.hse.ru/en/">HSE University</a>. I&rsquo;m looking to continue this
         work through doctoral study &mdash; feel free to
@@ -84,13 +98,32 @@
       </p>
     </div>
 
+    <section class="section">
+      <h2>Publications</h2>
+
+      <div class="pub">
+        <div class="year">2026</div>
+        <div class="body">
+          <div class="ptitle">PIEFS: Physics-Informed Eigenfunction Features with Learnable Scaling</div>
+          <div class="authors">
+            <span class="me">Varvara Nazarenko</span>, Timur Lidzhiev, Alexander Tarakanov
+          </div>
+          <div class="venue">ICML 2026 AI4Physics Workshop</div>
+          <div class="plinks">
+            <a href="https://arxiv.org/abs/2607.03692">arxiv</a>
+            <!-- EDIT: add a code link if you have one -->
+            <!-- <a href="https://github.com/your-username/piefs">code</a> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- EDIT: replace each href with your real link. Delete any you don't use. -->
     <div class="links">
       <a href="mailto:you@example.com">email</a>
       <a href="https://github.com/your-username">github</a>
       <a href="https://scholar.google.com/citations?user=YOUR_ID">scholar</a>
       <a href="https://www.linkedin.com/in/your-handle">linkedin</a>
-      <a href="https://arxiv.org/abs/2607.03692">arxiv</a>
     </div>
 
     <footer>© 2026 Varvara Nazarenko</footer>
