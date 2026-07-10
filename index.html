@@ -11,49 +11,44 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500&family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet" />
 
 <style>
   :root{
-    --paper:#F6F7F9; --ink:#14171F; --body:#2b303b; --muted:#5A6373; --faint:#8A93A3;
-    --line:#E3E6EC; --indigo:#2B36C9; --indigo-d:#1E278F; --teal:#0E9488;
+    --paper:#FBFBFA; --ink:#1A1A1A; --body:#333; --muted:#767676; --line:#E6E6E4;
+    --link:#2B36C9;
     --serif:"Spectral",Georgia,serif; --sans:"IBM Plex Sans",system-ui,sans-serif;
     --mono:"IBM Plex Mono",ui-monospace,monospace;
   }
   *{ box-sizing:border-box; }
   html{ -webkit-text-size-adjust:100%; }
   body{ margin:0; background:var(--paper); color:var(--body);
-    font-family:var(--sans); font-size:17.5px; line-height:1.7;
+    font-family:var(--sans); font-size:17px; line-height:1.65;
     -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
 
-  .page{ max-width:44rem; margin:0 auto; padding:clamp(3rem,9vw,6rem) clamp(1.3rem,6vw,2rem) 4rem; }
+  .page{ max-width:38rem; margin:0 auto; padding:clamp(3rem,10vw,5.5rem) 1.4rem 4rem; }
 
-  .top{ display:flex; gap:clamp(1.3rem,4vw,2.2rem); align-items:center; margin-bottom:2.4rem; }
-  .photo{ width:8.5rem; height:8.5rem; flex:0 0 auto; border-radius:14px; object-fit:cover;
-    border:1px solid var(--line); background:#dfe3ea; box-shadow:0 8px 26px rgba(20,23,31,.10); }
-  @media(max-width:480px){ .top{ flex-direction:column; align-items:flex-start; gap:1.2rem; }
-    .photo{ width:7rem; height:7rem; } }
+  .top{ display:flex; gap:1.4rem; align-items:center; margin-bottom:2.2rem; }
+  .photo{ width:6.5rem; height:6.5rem; flex:0 0 auto; border-radius:50%; object-fit:cover;
+    border:1px solid var(--line); background:#eee; }
+  @media(max-width:460px){ .top{ gap:1.1rem; } .photo{ width:5.5rem; height:5.5rem; } }
 
-  h1{ font-family:var(--serif); font-weight:500; font-size:clamp(2rem,6vw,2.7rem);
-    line-height:1.05; letter-spacing:-.02em; margin:0; color:var(--ink); }
-  .rule{ height:3px; width:3.2rem; margin:.75rem 0 .55rem; border-radius:3px;
-    background:linear-gradient(90deg, var(--indigo), var(--teal)); }
-  .tag{ font-family:var(--mono); font-size:.78rem; letter-spacing:.03em; color:var(--muted); }
+  h1{ font-family:var(--serif); font-weight:500; font-size:clamp(1.7rem,5vw,2.1rem);
+    line-height:1.1; letter-spacing:-.01em; margin:0 0 .35rem; color:var(--ink); }
+  .tag{ font-family:var(--mono); font-size:.76rem; color:var(--muted); }
 
-  .bio p{ margin:0 0 1.15rem; }
-  .bio a{ color:var(--indigo); text-decoration:none; border-bottom:1px solid rgba(43,54,201,.28); }
-  .bio a:hover{ color:var(--indigo-d); border-bottom-color:var(--indigo-d); }
+  .bio p{ margin:0 0 1rem; }
+  a{ color:var(--link); text-decoration:none; border-bottom:1px solid rgba(43,54,201,.25); }
+  a:hover{ border-bottom-color:var(--link); }
   .paper-title{ font-family:var(--serif); font-style:italic; }
 
-  .links{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:2rem;
-    padding-top:1.6rem; border-top:1px solid var(--line); }
-  .links a{ font-family:var(--mono); font-size:.8rem; color:var(--ink);
-    border:1px solid var(--line); background:#fff; padding:.42rem .8rem;
-    border-radius:999px; text-decoration:none;
-    transition:border-color .15s, color .15s, transform .15s; }
-  .links a:hover{ color:var(--indigo); border-color:var(--indigo); transform:translateY(-1px); }
+  .links{ display:flex; flex-wrap:wrap; gap:1rem; margin-top:1.8rem;
+    padding-top:1.4rem; border-top:1px solid var(--line);
+    font-family:var(--mono); font-size:.8rem; }
+  .links a{ border-bottom:none; color:var(--muted); }
+  .links a:hover{ color:var(--link); }
 
-  footer{ margin-top:2.6rem; font-family:var(--mono); font-size:.72rem; color:var(--faint); }
+  footer{ margin-top:2.4rem; font-family:var(--mono); font-size:.7rem; color:var(--muted); }
 </style>
 </head>
 <body>
@@ -63,52 +58,39 @@
       <img class="photo" src="profile.jpg" alt="Varvara Nazarenko" />
       <div>
         <h1>Varvara Nazarenko</h1>
-        <div class="rule"></div>
-        <div class="tag">independent researcher · physics-informed machine learning</div>
+        <div class="tag">independent researcher · physics-informed ML</div>
       </div>
     </div>
 
     <div class="bio">
       <p>
-        Hi, my name is Varvara! I&rsquo;m an independent researcher working at the intersection
-        of machine learning and physics. My research focuses on <b>physics-informed learning</b>
-        and spectral representation methods &mdash; lately on physics-informed neural networks
-        (PINNs) and eigenfunction features whose geometry is <i>learned</i> rather than fixed.
-        I&rsquo;m interested in how physical structure &mdash; energies, operators, symmetries &mdash;
-        can be built into the way models represent data, and more broadly in the AI4Physics and
-        scientific-ML program.
+        I&rsquo;m an independent researcher working at the intersection of machine
+        learning and physics &mdash; physics-informed neural networks (PINNs) and
+        spectral representations whose geometry is <i>learned</i> rather than fixed.
       </p>
 
       <p>
-        My recent work, <a href="https://arxiv.org/abs/2607.03692"><span class="paper-title">PIEFS:
-        Physics-Informed Eigenfunction Features with Learnable Scaling</span></a>, was accepted to
-        the <b>ICML&nbsp;2026 AI4Physics Workshop</b>. It replaces hand-picked spectral feature
-        scaling with a learnable metric trained under a modified Dirichlet energy &mdash; joint work
-        with Timur Lidzhiev and Alexander Tarakanov.
+        My recent paper <a href="https://arxiv.org/abs/2607.03692"><span class="paper-title">PIEFS:
+        Physics-Informed Eigenfunction Features with Learnable Scaling</span></a> was accepted
+        to the <b>ICML&nbsp;2026 AI4Physics Workshop</b> (with Timur Lidzhiev and Alexander Tarakanov).
       </p>
 
       <p>
-        I received my BSc in Applied Mathematics and Computer Science (machine-learning track) from
-        <a href="https://www.hse.ru/en/">HSE University</a>. I&rsquo;m now looking to continue this
-        line of research through doctoral study, and I&rsquo;d be glad to connect with groups working
-        on physics-informed and scientific machine learning.
-      </p>
-
-      <p>
+        BSc in Applied Mathematics and Computer Science from
+        <a href="https://www.hse.ru/en/">HSE University</a>. I&rsquo;m looking to continue this
+        work through doctoral study &mdash; feel free to
         <!-- EDIT: put your real email in the mailto below -->
-        If you&rsquo;d like to talk about my work &mdash; or just chat &mdash; feel free to reach me
-        by <a href="mailto:you@example.com">email</a>. I&rsquo;ll be happy to answer any questions!
+        <a href="mailto:you@example.com">get in touch</a>.
       </p>
     </div>
 
     <!-- EDIT: replace each href with your real link. Delete any you don't use. -->
     <div class="links">
-      <a href="mailto:you@example.com">✉ email</a>
+      <a href="mailto:you@example.com">email</a>
       <a href="https://github.com/your-username">github</a>
       <a href="https://scholar.google.com/citations?user=YOUR_ID">scholar</a>
       <a href="https://www.linkedin.com/in/your-handle">linkedin</a>
       <a href="https://arxiv.org/abs/2607.03692">arxiv</a>
-      <a href="cv.pdf">cv</a>
     </div>
 
     <footer>© 2026 Varvara Nazarenko</footer>
