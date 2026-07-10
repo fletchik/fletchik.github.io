@@ -39,16 +39,18 @@
   a{ color:var(--accent); text-decoration:none; }
   a:hover{ color:var(--accent-d); }
 
+  .section + .section{ margin-top:2.2rem; }
   .section h2{ font-size:.72rem; font-weight:600; letter-spacing:.11em;
     text-transform:uppercase; color:var(--muted);
     margin:0 0 1rem; padding-bottom:.5rem; border-bottom:1px solid var(--line); }
+  .interests{ margin:0; }
 
   .pub{ display:flex; gap:1rem; margin-bottom:1.2rem; }
   .pub .year{ flex:0 0 2.6rem; font-size:.82rem; color:var(--muted); padding-top:.12rem; }
   .pub .body{ flex:1; }
   .pub .ptitle{ font-weight:600; font-size:1rem; color:var(--ink); line-height:1.35; }
   .pub .authors{ font-size:.9rem; color:var(--body); margin:.15rem 0 .05rem; }
-  .pub .authors .me{ color:var(--ink); font-weight:600; }
+  .pub .authors .me{ color:inherit; font-weight:400; }
   .pub .venue{ font-size:.86rem; color:var(--muted); }
   .pub .plinks{ margin-top:.3rem; font-size:.82rem; }
   .pub .plinks a{ margin-right:.9rem; }
@@ -77,7 +79,6 @@
       <img class="photo" src="profile.jpg" alt="Varvara Nazarenko" />
       <div>
         <h1>Varvara Nazarenko</h1>
-        <div class="tag">independent researcher · physics-informed ML</div>
       </div>
     </div>
 
@@ -92,9 +93,18 @@
         BSc in Applied Mathematics and Computer Science from
         <a href="https://www.hse.ru/en/">HSE University</a>. I&rsquo;m looking to continue this
         work through doctoral study &mdash; feel free to
-        <a href="mailto:varunaza@gmail.com">get in touch</a>.
+        <a href="mailto:varunaza@gmail.com">get in touch</a> ;)
       </p>
     </div>
+
+    <section class="section">
+      <h2>Interests</h2>
+      <p class="interests">
+        Independent researcher in physics-informed machine learning &mdash;
+        physics-informed neural networks (PINNs), spectral &amp; eigenfunction
+        representations, and scientific ML (AI4Physics).
+      </p>
+    </section>
 
     <section class="section">
       <h2>Publications</h2>
