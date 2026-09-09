@@ -74,7 +74,9 @@
   .item .what{ font-weight:600; font-size:1rem; color:var(--ink); line-height:1.35; }
   .item .org{ font-size:.88rem; color:var(--body); margin:.12rem 0 0; }
   .item .note{ font-size:.82rem; color:var(--muted); }
-  .org .uni{ display:inline-flex; align-items:center; gap:.35rem; vertical-align:-.15em; }
+  .org .uni{ display:inline-flex; align-items:center; gap:.35rem; vertical-align:-.15em;
+    color:#0F2D69; }
+  .org .uni:hover{ color:#091d47; }
   .org .uni img{ width:1rem; height:1rem; border-radius:2px; flex:0 0 auto; }
   .item .desc{ font-size:.93rem; line-height:1.55; margin-top:.3rem; }
 
@@ -128,7 +130,7 @@
         <h1>Varvara Nazarenko</h1>
         <div class="role">AI/ML Engineer</div>
         <div class="toplinks">
-          <a href="https://www.linkedin.com/in/varuuu/">LinkedIn</a> <span>&middot;</span> <a href="cv.pdf">CV</a> <span>&middot;</span> <a href="mailto:varunaza@gmail.com">email</a>
+          <a href="cv.pdf">CV</a> <span>&middot;</span> <a href="mailto:varunaza@gmail.com">email</a>
         </div>
       </div>
     </div>
@@ -170,11 +172,10 @@
         <div class="when">2025 &mdash; now</div>
         <div class="body">
           <div class="what">Research Assistant, Machine Learning</div>
-          <div class="org"><a href="https://www.hse.ru/en/">HSE University</a>, Faculty of Computer Science</div>
+          <div class="org"><a class="uni" href="https://www.hse.ru/en/">HSE University</a>, Faculty of Computer Science</div>
           <div class="desc">
             PIEFS &mdash; a spectral representation-learning method in PyTorch, designed and
-            built from scratch. First-author paper presented at the ICML&nbsp;2026
-            AI4Physics Workshop.
+            built from scratch.
           </div>
         </div>
       </div>
@@ -202,7 +203,7 @@
           <div class="authors">
             <span class="me">Varvara Nazarenko</span>, Timur Lidzhiev, Alexander Tarakanov
           </div>
-          <div class="venue">ICML 2026 AI4Physics Workshop</div>
+          <div class="venue">First author &middot; ICML 2026 AI4Physics Workshop</div>
           <div class="plinks">
             <a href="https://arxiv.org/abs/2607.03692">arxiv</a>
             <a href="https://arxiv.org/pdf/2607.03692">pdf</a>
@@ -229,7 +230,6 @@
       <h2>Toolbox</h2>
       <div class="sk"><div class="lbl">Code</div><div class="val">Python &middot; SQL &middot; C++ &middot; PyTorch &middot; scikit-learn &middot; pandas</div></div>
       <div class="sk"><div class="lbl">Stack</div><div class="val">PostgreSQL &middot; Docker &middot; Git &middot; Vertex AI &middot; Weights &amp; Biases</div></div>
-      <div class="sk"><div class="lbl">Into</div><div class="val">Representation learning &middot; spectral &amp; geometric ML</div></div>
       <div class="sk"><div class="lbl">Speaks</div><div class="val">English &middot; Russian &middot; a bit of Hebrew and French</div></div>
     </section>
 
@@ -238,7 +238,7 @@
       <div class="item">
         <div class="when">2022 &mdash; 2026</div>
         <div class="body">
-          <div class="what">B.Sc. Applied Mathematics &amp; Computer Science, ML track</div>
+          <div class="what">B.Sc. Applied Mathematics &amp; Computer Science</div>
           <div class="org"><a class="uni" href="https://www.hse.ru/en/"><img src="hse.png" alt="" />HSE University</a> <span class="note">&middot; final semester 8.56/10, top 5% of the cohort</span></div>
         </div>
       </div>
@@ -249,18 +249,6 @@
     </p>
 
     <div class="links">
-      <a href="mailto:varunaza@gmail.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-        email
-      </a>
-      <a href="cv.pdf">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-        cv
-      </a>
-      <a href="https://www.linkedin.com/in/varuuu/">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0z"/></svg>
-        linkedin
-      </a>
       <a href="https://scholar.google.com/citations?user=aReLUfsAAAAJ">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v3.82L12 21l7-4v-3.82L12 17l-7-3.82z"/></svg>
         scholar
