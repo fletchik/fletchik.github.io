@@ -30,124 +30,106 @@
 <style>
   :root{
     --paper:#FBFBFA; --ink:#1A1A1A; --body:#3A3A40; --muted:#8A8A8A; --line:#EAEAE7;
-    --chip:#F1F1EE; --navy:#0F2D69;
-    --accent:#E24A2B; --accent-d:#BF3A1D;
+    --navy:#0F2D69; --accent:#E24A2B; --accent-d:#BF3A1D;
     --sans:"Inter",system-ui,-apple-system,sans-serif;
+    --rh:1.2rem;               /* one line of the role rotator */
   }
   *{ box-sizing:border-box; }
   html{ -webkit-text-size-adjust:100%; }
   body{ margin:0; background:var(--paper); color:var(--body);
-    font-family:var(--sans); font-size:16.5px; line-height:1.62;
+    font-family:var(--sans); font-size:16.5px; line-height:1.72;
     -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
 
-  .page{ max-width:44rem; margin:0 auto; padding:clamp(2.6rem,9vw,4.5rem) 1.4rem 3.5rem; }
+  .page{ max-width:38rem; margin:0 auto; padding:clamp(2.6rem,9vw,4.5rem) 1.4rem 3.5rem; }
 
-  .top{ display:flex; gap:1.25rem; align-items:center; margin-bottom:2rem; }
+  .top{ display:flex; gap:1.25rem; align-items:center; margin-bottom:2.1rem; }
   .photo{ width:6.5rem; height:6.5rem; flex:0 0 auto; border-radius:50%; object-fit:cover;
     border:1px solid var(--line); background:#eee; }
 
   h1{ font-weight:600; font-size:1.7rem; line-height:1.15; letter-spacing:-.02em;
-    margin:0 0 .25rem; color:var(--ink); }
-  .role{ font-size:.95rem; color:var(--body); font-weight:500; margin-bottom:.45rem; }
+    margin:0; color:var(--ink); }
+
+  /* hand-drawn stroke that draws itself under the name, once, on load */
+  .squiggle{ display:block; width:10.5rem; height:.55rem; margin:.2rem 0 .45rem;
+    overflow:visible; }
+  .squiggle path{ fill:none; stroke:var(--accent); stroke-width:2.2; stroke-linecap:round;
+    stroke-dasharray:1; stroke-dashoffset:1;
+    animation:draw 1s .3s cubic-bezier(.65,0,.35,1) forwards; }
+  @keyframes draw{ to{ stroke-dashoffset:0 } }
+
+  /* the role cycles through the roles she is actually applying for.
+     pure CSS, so it plays on a phone with no interaction at all. */
+  .role{ height:var(--rh); overflow:hidden; margin-bottom:.55rem; }
+  .rot{ display:block; animation:rot 12s cubic-bezier(.76,0,.24,1) 1.2s infinite; }
+  .rot > span{ display:block; height:var(--rh); line-height:var(--rh);
+    font-size:.72rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--body); white-space:nowrap; }
+  @keyframes rot{
+    0%,   20%  { transform:translateY(0) }
+    25%,  45%  { transform:translateY(calc(var(--rh) * -1)) }
+    50%,  70%  { transform:translateY(calc(var(--rh) * -2)) }
+    75%,  95%  { transform:translateY(calc(var(--rh) * -3)) }
+    100%       { transform:translateY(calc(var(--rh) * -4)) }
+  }
+
   .toplinks{ font-size:.84rem; color:var(--muted); }
   .toplinks a{ font-weight:500; }
   .toplinks span{ margin:0 .12rem; }
 
   a{ color:var(--accent); text-decoration:none; }
-  a:hover{ color:var(--accent-d); }
+  a.uni{ color:var(--navy); }
 
-  .bio{ margin-bottom:1.15rem; }
-  .bio p{ margin:0 0 .9rem; }
-  .cta{ margin:0 0 2.6rem; font-size:.95rem; }
-  .cta a.primary{ font-weight:600; }
+  p{ margin:0 0 1.05rem; }
+  .refs{ font-size:.84rem; color:var(--muted); }
+  .refs a{ margin-right:.75rem; }
 
-  /* section label: a short tick instead of a full-width rule, so four sections
-     don't turn the page into a form */
-  .section + .section{ margin-top:2.4rem; }
-  .section h2{ font-size:.7rem; font-weight:600; letter-spacing:.13em;
-    text-transform:uppercase; color:var(--muted); margin:0 0 .95rem; }
-  .section h2::after{ content:""; display:block; width:1.6rem; height:2px;
-    background:var(--ink); opacity:.18; margin-top:.5rem; }
+  /* the one number on the page draws attention to itself, briefly */
+  .pop{ position:relative; display:inline-block; color:var(--ink); font-weight:600; }
+  .pop::after{ content:""; position:absolute; left:-.12em; right:-.12em; bottom:.02em;
+    height:.42em; background:#FBE3DA; border-radius:2px; z-index:-1;
+    transform:scaleX(0); transform-origin:left;
+    animation:sweep .7s 1.15s cubic-bezier(.22,1,.36,1) forwards; }
+  @keyframes sweep{ to{ transform:scaleX(1) } }
 
-  /* entry: title and date share one baseline, text runs full width */
-  .entry + .entry{ margin-top:1.5rem; }
-  .head{ display:flex; justify-content:space-between; align-items:baseline;
-    gap:.4rem 1rem; flex-wrap:wrap; }
-  .head .what{ font-weight:600; font-size:1rem; color:var(--ink); line-height:1.35; }
-  .head .when{ font-size:.8rem; color:var(--muted); white-space:nowrap; }
-  .org{ font-size:.88rem; margin:.12rem 0 0; }
-  .org .note{ color:var(--muted); }
-  .org .uni{ display:inline-flex; align-items:center; gap:.35rem; vertical-align:-.15em;
-    color:var(--navy); }
-  .org .uni:hover{ color:#091d47; }
-  .org .uni img{ width:1rem; height:1rem; border-radius:2px; flex:0 0 auto; }
-  .desc{ font-size:.93rem; line-height:1.55; margin-top:.4rem; }
-
-  /* publications keep the bibliography-style year column, tight to its content */
-  .pub .pbody{ min-width:0; }
-  .pub .ptitle{ font-weight:600; font-size:1rem; color:var(--ink); line-height:1.35; }
-  .pub .venue{ font-size:.86rem; color:var(--muted); margin-top:.1rem; }
-  .pub .plinks{ margin-top:.35rem; font-size:.82rem; }
-  .pub .plinks a{ margin-right:.9rem; }
-
-  /* toolbox: one cloud of bubbles. tech is neutral, research reads warm,
-     spoken languages sit back. order carries the grouping, so no legend. */
-  .bubbles{ display:flex; flex-wrap:wrap; gap:.4rem; }
-  .b{ font-size:.82rem; color:var(--body); background:var(--chip);
-    border:1px solid var(--line); border-radius:999px; padding:.2rem .68rem;
-    transition:transform .18s cubic-bezier(.34,1.56,.64,1),
-               border-color .18s ease, background-color .18s ease, color .18s ease;
-    animation:pop .42s cubic-bezier(.34,1.56,.64,1) backwards;
-    animation-delay:calc(var(--i) * 18ms); cursor:default; }
-  .b:hover{ transform:translateY(-3px) rotate(-1.5deg); border-color:#D8D8D2;
-    background:#fff; }
-  .b--focus{ color:var(--accent-d); background:#FDF1ED; border-color:#F5D9D0; }
-  .b--focus:hover{ border-color:#EFC3B5; background:#fff; }
-  .b--soft{ color:var(--muted); background:transparent; }
-  .b--soft:hover{ color:var(--body); }
-
-  @keyframes pop{
-    from{ opacity:0; transform:translateY(6px) scale(.96); }
-    to{ opacity:1; transform:none; }
-  }
-  @keyframes rise{
-    from{ opacity:0; transform:translateY(8px); }
-    to{ opacity:1; transform:none; }
-  }
-  /* kept deliberately short: everything is on screen inside ~0.4s, so the page
-     never reads as blank to someone opening it on a phone */
-  .page > *{ animation:rise .3s ease backwards; }
-  .page > :nth-child(1){ animation-delay:0s }
-  .page > :nth-child(2){ animation-delay:.03s }
-  .page > :nth-child(3){ animation-delay:.06s }
-  .page > :nth-child(n+4){ animation-delay:.09s }
-
-  /* the arrow leans out when you reach for it */
-  .cta .primary .arw{ display:inline-block; transition:transform .18s ease; }
-  .cta .primary:hover .arw{ transform:translateX(3px); }
-
-  @media(prefers-reduced-motion:reduce){
-    .b, .page > *, .cta .primary .arw{ animation:none !important; transition:none !important; }
-    .b:hover{ transform:none; }
+  .cta{ margin-top:1.6rem; }
+  .cta a{ font-weight:600; }
+  .cta .arw{ display:inline-block; animation:nudge 2.4s 2s ease-in-out infinite; }
+  @keyframes nudge{
+    0%,72%,100%{ transform:translateX(0) } 82%{ transform:translateX(5px) }
   }
 
-  .outro{ margin:2.6rem 0 0; padding-top:1.4rem; border-top:1px solid var(--line);
-    font-size:.92rem; }
-
-  .links{ display:flex; flex-wrap:wrap; gap:1.1rem; margin-top:1.6rem; font-size:.86rem; }
+  .links{ display:flex; flex-wrap:wrap; gap:1.1rem; margin-top:2.6rem;
+    padding-top:1.5rem; border-top:1px solid var(--line); font-size:.86rem; }
   .links a{ display:inline-flex; align-items:center; gap:.4rem; }
   .links svg{ width:1rem; height:1rem; flex:0 0 auto; }
 
-  footer{ margin-top:2.2rem; font-size:.76rem; color:var(--muted); }
+  footer{ margin-top:2rem; font-size:.76rem; color:var(--muted); }
 
-  @media(max-width:560px){
-    /* date above the title on narrow screens, as before */
-    .head{ flex-direction:column-reverse; align-items:flex-start; gap:.1rem; }
+  /* paragraphs arrive as you scroll — on a phone the scroll IS the interaction.
+     no-JS and no-IntersectionObserver both fall back to plain visible text. */
+  .reveal.armed{ opacity:0; transform:translateY(16px); }
+  .reveal.armed.in{ opacity:1; transform:none;
+    transition:opacity .55s ease, transform .55s cubic-bezier(.22,1,.36,1); }
+
+  /* desktop-only extras; nothing depends on them */
+  @media(hover:hover){
+    a:hover{ color:var(--accent-d); text-decoration:underline;
+      text-underline-offset:.18em; text-decoration-thickness:1px; }
+    .links a:hover{ text-decoration:none; }
+    a.uni:hover{ color:#091d47; }
   }
+
+  @media(prefers-reduced-motion:reduce){
+    .squiggle path{ animation:none; stroke-dashoffset:0 }
+    .rot{ animation:none }
+    .pop::after{ animation:none; transform:scaleX(1) }
+    .cta .arw{ animation:none }
+    .reveal.armed{ opacity:1; transform:none }
+  }
+
   @media(max-width:460px){
     .top{ gap:.9rem; } .photo{ width:4.5rem; height:4.5rem; }
-    h1{ font-size:1.5rem; }
-    .role{ font-size:.9rem; }
+    h1{ font-size:1.5rem; } .squiggle{ width:9rem; }
   }
   @media(max-width:360px){
     .top{ flex-direction:column; align-items:flex-start; gap:.8rem; }
@@ -161,101 +143,59 @@
       <img class="photo" src="profile.jpg" alt="Varvara Nazarenko" />
       <div>
         <h1>Varvara Nazarenko</h1>
-        <div class="role">AI/ML Engineer</div>
+        <svg class="squiggle" viewBox="0 0 200 8" preserveAspectRatio="none" aria-hidden="true">
+          <path pathLength="1" d="M2 5.4 C 34 1.6, 62 6.8, 96 3.4 S 158 6.4, 198 2.8" />
+        </svg>
+        <div class="role" aria-label="AI/ML Engineer">
+          <span class="rot">
+            <span>AI/ML Engineer</span>
+            <span aria-hidden="true">Applied Scientist</span>
+            <span aria-hidden="true">Research Engineer</span>
+            <span aria-hidden="true">Solutions Engineer</span>
+            <span aria-hidden="true">AI/ML Engineer</span>
+          </span>
+        </div>
         <div class="toplinks">
           <a href="cv.pdf">CV</a> <span>&middot;</span> <a href="mailto:varunaza@gmail.com">email</a>
         </div>
       </div>
     </div>
 
-    <div class="bio">
-      <p>
-        Hi! I&rsquo;m Varvara. I work at the intersection of machine learning and business,
-        bringing mathematical rigor and an engineering mindset to open-ended problems
-        &mdash; from framing the question to building the model and the tools around it.
-      </p>
-
-      <p>
-        I&rsquo;m the first author of PIEFS, presented at the ICML&nbsp;2026 AI4Physics
-        Workshop. Research-wise, I&rsquo;m into RL and geometry in ML.
-      </p>
-    </div>
-
-    <p class="cta">
-      If we met at AWS Summit, hi again :) Building something thoughtful? Let&rsquo;s talk.<br />
-      <a class="primary" href="https://www.linkedin.com/in/varuuu/">LinkedIn <span class="arw">&rarr;</span></a>
+    <p class="reveal">
+      Hi! I&rsquo;m Varvara. I work at the intersection of machine learning and business,
+      bringing mathematical rigor and an engineering mindset to open-ended problems
+      &mdash; from framing the question to building the model and the tools around it.
     </p>
 
-    <section class="section">
-      <h2>Experience</h2>
-      <div class="entry">
-        <div class="head">
-          <div class="what">ML / Data Analyst &mdash; Pricing &amp; Market Intelligence</div>
-        </div>
-        <div class="org">Global commodities producer</div>
-        <div class="desc">
-          Price indices, a liquidity matrix, ML models, and internal tools used in ongoing
-          pricing and market analysis over ~30&nbsp;GB of market data. Python, PostgreSQL, BI.
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Publications</h2>
-      <div class="pub">
-        <div class="pbody">
-          <div class="ptitle">PIEFS: Physics-Informed Eigenfunction Features with Learnable Scaling</div>
-          <div class="venue">ICML 2026 AI4Physics Workshop</div>
-          <div class="plinks">
-            <a href="https://arxiv.org/abs/2607.03692">arxiv</a>
-            <a href="https://arxiv.org/pdf/2607.03692">pdf</a>
-            <a href="piefs-poster.pdf">poster</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Toolbox</h2>
-      <div class="bubbles">
-        <span class="b" style="--i:0">Python</span>
-        <span class="b" style="--i:1">SQL</span>
-        <span class="b" style="--i:2">C++</span>
-        <span class="b" style="--i:3">PyTorch</span>
-        <span class="b" style="--i:4">scikit-learn</span>
-        <span class="b" style="--i:5">pandas</span>
-        <span class="b" style="--i:6">PostgreSQL</span>
-        <span class="b" style="--i:7">Docker</span>
-        <span class="b" style="--i:8">Git</span>
-        <span class="b" style="--i:9">Vertex AI</span>
-        <span class="b" style="--i:10">Weights &amp; Biases</span>
-        <span class="b b--focus" style="--i:11">RL</span>
-        <span class="b b--focus" style="--i:12">geometry in ML</span>
-        <span class="b b--focus" style="--i:13">representation learning</span>
-        <span class="b b--focus" style="--i:14">spectral methods</span>
-        <span class="b b--soft" style="--i:15">English</span>
-        <span class="b b--soft" style="--i:16">Russian</span>
-        <span class="b b--soft" style="--i:17">Hebrew (basic)</span>
-        <span class="b b--soft" style="--i:18">French (basic)</span>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Education</h2>
-      <div class="entry">
-        <div class="head">
-          <div class="what">B.Sc. Applied Mathematics &amp; Computer Science</div>
-          <div class="when">2022 &mdash; 2026</div>
-        </div>
-        <div class="org"><a class="uni" href="https://www.hse.ru/en/"><img src="hse.png" alt="" />HSE University</a> <span class="note">&middot; final semester 8.56/10, top 5%</span></div>
-      </div>
-    </section>
-
-    <p class="outro">
-      Always curious to hear about new research, collaborations, or interesting ML ideas :)
+    <p class="reveal">
+      I graduated from <a class="uni" href="https://www.hse.ru/en/">HSE University</a> in
+      applied mathematics and computer science, finishing my last semester at
+      <span class="pop">8.56/10</span>, top 5%.
     </p>
 
-    <div class="links">
+    <p class="reveal">
+      I published <a href="https://arxiv.org/abs/2607.03692">PIEFS</a>, a spectral
+      representation-learning method, as first author at the ICML&nbsp;2026 AI4Physics
+      Workshop. Research-wise, I&rsquo;m into RL and geometry in ML.
+      <span class="refs">
+        <a href="https://arxiv.org/abs/2607.03692">arxiv</a>
+        <a href="https://arxiv.org/pdf/2607.03692">pdf</a>
+        <a href="piefs-poster.pdf">poster</a>
+      </span>
+    </p>
+
+    <p class="reveal">
+      Right now I work on pricing and market intelligence at a global commodities producer,
+      building price indices, a liquidity matrix, ML models and internal tools over
+      ~30&nbsp;GB of market data &mdash; mostly Python, PostgreSQL and PyTorch.
+    </p>
+
+    <p class="cta reveal">
+      If we met at AWS Summit, hi again :) Building something thoughtful?
+      <a href="https://www.linkedin.com/in/varuuu/">Let&rsquo;s talk <span class="arw">&rarr;</span></a>
+    </p>
+
+    <div class="links reveal">
       <a href="mailto:varunaza@gmail.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
         email
@@ -273,5 +213,33 @@
     <footer>&copy; 2026 Varvara Nazarenko</footer>
 
   </main>
+
+  <script>
+  (function(){
+    try{
+      if (!('IntersectionObserver' in window)) return;
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var els = document.querySelectorAll('.reveal');
+      var show = function(el){ el.classList.add('in'); };
+
+      // arm only now: until this line runs the text is plain visible
+      for (var i=0;i<els.length;i++) els[i].classList.add('armed');
+
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting){ show(e.target); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      for (var j=0;j<els.length;j++) io.observe(els[j]);
+
+      // short safety net: nothing stays hidden for long, whatever happens
+      setTimeout(function(){ for (var k=0;k<els.length;k++) show(els[k]); }, 700);
+    }catch(e){
+      var all = document.querySelectorAll('.reveal');
+      for (var m=0;m<all.length;m++){ all[m].classList.remove('armed'); }
+    }
+  })();
+  </script>
 </body>
 </html>
