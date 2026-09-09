@@ -47,8 +47,10 @@
 
   h1{ font-weight:600; font-size:1.7rem; line-height:1.15; letter-spacing:-.02em;
     margin:0 0 .25rem; color:var(--ink); }
-  .role{ font-size:.95rem; color:var(--body); font-weight:500; margin-bottom:.2rem; }
-  .tag{ font-size:.82rem; color:var(--muted); letter-spacing:.01em; }
+  .role{ font-size:.95rem; color:var(--body); font-weight:500; margin-bottom:.45rem; }
+  .toplinks{ font-size:.84rem; color:var(--muted); }
+  .toplinks a{ font-weight:500; }
+  .toplinks span{ margin:0 .12rem; }
 
   .bio{ margin-bottom:1.15rem; }
   .bio p{ margin:0 0 .9rem; }
@@ -106,8 +108,14 @@
     .item .when, .pub .year, .sk .lbl{ flex:0 0 auto; padding-top:0; }
   }
   @media(max-width:460px){
-    .top{ gap:1rem; } .photo{ width:5.5rem; height:5.5rem; }
+    .top{ gap:.9rem; } .photo{ width:4.5rem; height:4.5rem; }
     h1{ font-size:1.5rem; }
+    .role{ font-size:.9rem; }
+  }
+  /* below this, photo + gutters leave the text column too narrow for the role
+     to hold one line, so stack instead of shrinking the type further */
+  @media(max-width:360px){
+    .top{ flex-direction:column; align-items:flex-start; gap:.8rem; }
   }
 </style>
 </head>
@@ -118,32 +126,29 @@
       <img class="photo" src="profile.jpg" alt="Varvara Nazarenko" />
       <div>
         <h1>Varvara Nazarenko</h1>
-        <div class="role">AI/ML Engineer &middot; ICML author (PIEFS)</div>
-        <div class="tag">Tel Aviv / Haifa &middot; Israeli citizen &middot; open to hybrid</div>
+        <div class="role">AI/ML Engineer &middot; Applied Research</div>
+        <div class="toplinks">
+          <a href="https://www.linkedin.com/in/varuuu/">LinkedIn</a> <span>&middot;</span> <a href="cv.pdf">CV</a> <span>&middot;</span> <a href="mailto:varunaza@gmail.com">email</a>
+        </div>
       </div>
     </div>
 
     <div class="bio">
       <p>
-        Hi! I&rsquo;m Varvara &mdash; I build machine learning somewhere between research
-        and things that actually have to work: spectral representation learning and neural
-        eigenfunctions on one side, pricing models, LLM workflows, and messy real-world
-        data on the other.
+        Hi! I&rsquo;m Varvara &mdash; an AI/ML engineer who likes turning ambiguous
+        problems into experiments, models, and tools people actually use.
       </p>
 
       <p>
-        I like taking open-ended problems from &ldquo;we should probably do something with
-        this&rdquo; to experiments, models, and tools people actually use. I&rsquo;m now
-        looking for early-career AI/ML engineering, applied data science, solutions, or
-        applied research opportunities in Israel.
+        I&rsquo;ve built pricing systems on ~30&nbsp;GB of market data and developed PIEFS,
+        a spectral representation-learning method presented at the ICML&nbsp;2026
+        AI4Physics Workshop. I&rsquo;m now looking for AI/ML engineering or solutions roles.
       </p>
     </div>
 
     <p class="cta">
-      Met me at AWS Summit? Let&rsquo;s stay in touch :)<br />
-      <a class="primary" href="https://www.linkedin.com/in/varuuu/">connect on LinkedIn</a>
-      &middot;
-      <a href="cv.pdf">download CV</a>
+      Met me at AWS Summit?
+      <a class="primary" href="https://www.linkedin.com/in/varuuu/">Let&rsquo;s connect on LinkedIn &rarr;</a>
     </p>
 
     <section class="section">
