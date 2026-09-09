@@ -27,11 +27,16 @@ Remember to fix `<link rel="canonical">` and `og:url` in whichever file moves.
 
 ## CV
 
-`cv.pdf` is built from `~/cv/cv_public.tex`:
+`resume.pdf` is built from `~/cv/cv_public.tex`:
 
 ```bash
-cd ~/cv && latexmk -pdf cv_public.tex && cp cv_public.pdf ~/github_page/cv.pdf
+cd ~/cv && latexmk -pdf cv_public.tex \
+  && cp cv_public.pdf ~/github_page/resume.pdf \
+  && cp cv_public.pdf ~/github_page/cv.pdf
 ```
+
+`cv.pdf` is the same file under its old name, kept so links already handed out
+keep working. Drop it once you are sure none are in circulation.
 
 **This repository is public. Two rules, no exceptions:**
 
@@ -40,14 +45,14 @@ cd ~/cv && latexmk -pdf cv_public.tex && cp cv_public.pdf ~/github_page/cv.pdf
    out of this repo entirely — git history is public and cannot be un-published.
 2. **No phone number in `cv.pdf`.** The file gets indexed by Google.
 
-Check before every commit that touches the CV:
+Check before every commit that touches the resume:
 
 ```bash
 # EMPLOYER = the real company name, PHONE = the number. Never hardcode them here:
 # this README is public too.
 PAT="$EMPLOYER|diamond|$PHONE"
 grep -riE "$PAT" . --exclude-dir=.git --exclude="*.pdf"
-pdftotext cv.pdf - | grep -iE "$PAT"
+pdftotext resume.pdf - | grep -iE "$PAT"
 ```
 
 Both must return nothing.
