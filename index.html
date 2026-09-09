@@ -30,7 +30,7 @@
 <style>
   :root{
     --paper:#FBFBFA; --ink:#1A1A1A; --body:#3A3A40; --muted:#8A8A8A; --line:#EAEAE7;
-    --navy:#0F2D69; --accent:#E24A2B; --accent-d:#BF3A1D;
+    --navy:#1b3b72;        /* sampled from hse.png, so text matches the mark */ --accent:#E24A2B; --accent-d:#BF3A1D;
     --sans:"Inter",system-ui,-apple-system,sans-serif;
   }
   *{ box-sizing:border-box; }
@@ -46,15 +46,7 @@
     border:1px solid var(--line); background:#eee; }
 
   h1{ font-weight:600; font-size:1.7rem; line-height:1.15; letter-spacing:-.02em;
-    margin:0; color:var(--ink); }
-
-  /* hand-drawn stroke that draws itself under the name, once, on load */
-  .squiggle{ display:block; width:10.5rem; height:.55rem; margin:.2rem 0 .45rem;
-    overflow:visible; }
-  .squiggle path{ fill:none; stroke:var(--accent); stroke-width:2.2; stroke-linecap:round;
-    stroke-dasharray:1; stroke-dashoffset:1;
-    animation:draw 1s .3s cubic-bezier(.65,0,.35,1) forwards; }
-  @keyframes draw{ to{ stroke-dashoffset:0 } }
+    margin:0 0 .45rem; color:var(--ink); }
 
   .role{ font-size:.72rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
     color:var(--body); margin-bottom:.55rem; }
@@ -74,10 +66,6 @@
 
   .cta{ margin-top:1.6rem; margin-bottom:2.3rem; }
   .cta a{ font-weight:600; }
-  .cta .arw{ display:inline-block; animation:nudge 2.4s 2s ease-in-out infinite; }
-  @keyframes nudge{
-    0%,72%,100%{ transform:translateX(0) } 82%{ transform:translateX(5px) }
-  }
 
   .links{ display:flex; flex-wrap:wrap; gap:1.1rem; margin-top:2.6rem;
     padding-top:1.5rem; border-top:1px solid var(--line); font-size:.86rem; }
@@ -86,29 +74,18 @@
 
   footer{ margin-top:2rem; font-size:.76rem; color:var(--muted); }
 
-  /* paragraphs arrive as you scroll — on a phone the scroll IS the interaction.
-     no-JS and no-IntersectionObserver both fall back to plain visible text. */
-  .reveal.armed{ opacity:0; transform:translateY(16px); }
-  .reveal.armed.in{ opacity:1; transform:none;
-    transition:opacity .55s ease, transform .55s cubic-bezier(.22,1,.36,1); }
-
   /* desktop-only extras; nothing depends on them */
   @media(hover:hover){
     a:hover{ color:var(--accent-d); text-decoration:underline;
       text-underline-offset:.18em; text-decoration-thickness:1px; }
     .links a:hover{ text-decoration:none; }
-    a.uni:hover{ color:#091d47; }
+    a.uni:hover{ color:#0d2d62; }
   }
 
-  @media(prefers-reduced-motion:reduce){
-    .squiggle path{ animation:none; stroke-dashoffset:0 }
-    .cta .arw{ animation:none }
-    .reveal.armed{ opacity:1; transform:none }
-  }
 
   @media(max-width:460px){
     .top{ gap:.9rem; } .photo{ width:4.5rem; height:4.5rem; }
-    h1{ font-size:1.5rem; } .squiggle{ width:9rem; }
+    h1{ font-size:1.5rem; }
   }
   @media(max-width:360px){
     .top{ flex-direction:column; align-items:flex-start; gap:.8rem; }
@@ -122,9 +99,6 @@
       <img class="photo" src="profile.jpg" alt="Varvara Nazarenko" />
       <div>
         <h1>Varvara Nazarenko</h1>
-        <svg class="squiggle" viewBox="0 0 200 8" preserveAspectRatio="none" aria-hidden="true">
-          <path pathLength="1" d="M2 5.4 C 34 1.6, 62 6.8, 96 3.4 S 158 6.4, 198 2.8" />
-        </svg>
         <div class="role">AI/ML Engineer</div>
         <div class="toplinks">
           <a href="cv.pdf">CV</a> <span>&middot;</span> <a href="mailto:varunaza@gmail.com">email</a>
@@ -132,13 +106,13 @@
       </div>
     </div>
 
-    <p class="reveal">
+    <p>
       Hi! I&rsquo;m Varvara. I work at the intersection of machine learning and business,
       bringing mathematical rigor and an engineering mindset to open-ended problems
       &mdash; from framing the question to building the model and the tools around it.
     </p>
 
-    <p class="reveal">
+    <p>
       I&rsquo;m the first author of <a href="https://arxiv.org/abs/2607.03692">PIEFS</a>,
       presented at the ICML&nbsp;2026 AI4Physics Workshop. Research-wise, I&rsquo;m into
       RL and geometry in ML.
@@ -149,24 +123,29 @@
       </span>
     </p>
 
-    <p class="cta reveal">
-      If we met at AWS Summit, hi again :) Building something thoughtful?
-      <a href="https://www.linkedin.com/in/varuuu/">Let&rsquo;s talk&nbsp;<span class="arw">&rarr;</span></a>
+    <p>
+      I&rsquo;m looking for AI/ML engineering, applied science, research or solutions
+      engineering roles in Israel.
     </p>
 
-    <p class="reveal">
+    <p class="cta">
+      If we met at AWS Summit, hi again :) Building something thoughtful?
+      <a href="https://www.linkedin.com/in/varuuu/">Let&rsquo;s talk&nbsp;&rarr;</a>
+    </p>
+
+    <p>
       I graduated from <a class="uni" href="https://www.hse.ru/en/"><img src="hse.png" alt="" />HSE
       University</a> in applied mathematics and computer science, finishing my last
       semester at 8.56/10, top 5%.
     </p>
 
-    <p class="reveal">
+    <p>
       Right now I work on pricing and market intelligence at a global commodities producer,
       building price indices, a liquidity matrix, ML models and internal tools over
       ~30&nbsp;GB of market data &mdash; mostly Python, PostgreSQL and PyTorch.
     </p>
 
-    <div class="links reveal">
+    <div class="links">
       <a href="mailto:varunaza@gmail.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
         email
@@ -185,32 +164,5 @@
 
   </main>
 
-  <script>
-  (function(){
-    try{
-      if (!('IntersectionObserver' in window)) return;
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-      var els = document.querySelectorAll('.reveal');
-      var show = function(el){ el.classList.add('in'); };
-
-      // arm only now: until this line runs the text is plain visible
-      for (var i=0;i<els.length;i++) els[i].classList.add('armed');
-
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if (e.isIntersecting){ show(e.target); io.unobserve(e.target); }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-      for (var j=0;j<els.length;j++) io.observe(els[j]);
-
-      // short safety net: nothing stays hidden for long, whatever happens
-      setTimeout(function(){ for (var k=0;k<els.length;k++) show(els[k]); }, 700);
-    }catch(e){
-      var all = document.querySelectorAll('.reveal');
-      for (var m=0;m<all.length;m++){ all[m].classList.remove('armed'); }
-    }
-  })();
-  </script>
 </body>
 </html>
