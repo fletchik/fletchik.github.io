@@ -49,8 +49,9 @@
   h1{ font-weight:600; font-size:1.7rem; line-height:1.15; letter-spacing:-.02em;
     margin:0 0 .45rem; color:var(--ink); }
 
-  .role{ font-size:.72rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
-    color:var(--body); margin-bottom:.55rem; }
+  .role{ font-size:.72rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--body); line-height:1.55; margin-bottom:.55rem; }
+  .role span{ white-space:nowrap; }
 
   .toplinks{ font-size:.84rem; color:var(--muted); }
   .toplinks a{ font-weight:500; }
@@ -69,6 +70,7 @@
   .bubbles{ display:flex; flex-wrap:wrap; gap:.4rem; margin:0 0 1.15rem; }
   .b{ font-size:.82rem; color:var(--body); background:var(--chip);
     border:1px solid var(--line); border-radius:999px; padding:.2rem .68rem; }
+  .b--focus{ color:var(--accent-d); background:#FDF1ED; border-color:#F5D9D0; }
   .b--soft{ color:var(--muted); background:transparent; }
 
   .cta{ margin-top:1.6rem; margin-bottom:2.3rem; }
@@ -108,7 +110,7 @@
       <img class="photo" src="profile.jpg" alt="Varvara Nazarenko" />
       <div>
         <h1>Varvara Nazarenko</h1>
-        <div class="role">AI/ML Engineer</div>
+        <div class="role"><span>AI/ML Engineer</span> &middot; <span>AI Solutions Architect</span></div>
         <div class="toplinks">
           <a href="cv.pdf">CV</a> <span>&middot;</span> <a href="mailto:varunaza@gmail.com">email</a>
         </div>
@@ -132,10 +134,6 @@
       </span>
     </p>
 
-    <p>
-      I&rsquo;m looking for AI/ML engineering, applied science, research or solutions roles in Israel.
-    </p>
-
     <p class="cta">
       If we met at AWS Summit, hi again :) Building something thoughtful?
       <a href="https://www.linkedin.com/in/varuuu/">Let&rsquo;s talk&nbsp;&rarr;</a>
@@ -154,7 +152,32 @@
     </p>
 
     <div class="bubbles">
-      <span class="b">Python</span><span class="b">SQL</span><span class="b">C++</span><span class="b">PyTorch</span><span class="b">scikit-learn</span><span class="b">pandas</span><span class="b">PostgreSQL</span><span class="b">Docker</span><span class="b">Git</span><span class="b">Vertex AI</span><span class="b">Weights &amp; Biases</span><span class="b b--soft">English</span><span class="b b--soft">Russian</span><span class="b b--soft">Hebrew (basic)</span><span class="b b--soft">French (basic)</span>
+      <span class="b">Python</span>
+      <span class="b">SQL</span>
+      <span class="b">C++</span>
+      <span class="b">PyTorch</span>
+      <span class="b">scikit-learn</span>
+      <span class="b">Hugging Face</span>
+      <span class="b">NumPy</span>
+      <span class="b">pandas</span>
+      <span class="b">Polars</span>
+      <span class="b">PostgreSQL</span>
+      <span class="b">Docker</span>
+      <span class="b">Git</span>
+      <span class="b">Hydra</span>
+      <span class="b">Vertex AI</span>
+      <span class="b">Supabase</span>
+      <span class="b">Weights &amp; Biases</span>
+      <span class="b">Power BI</span>
+      <span class="b b--focus">RL</span>
+      <span class="b b--focus">geometry in ML</span>
+      <span class="b b--focus">representation learning</span>
+      <span class="b b--focus">spectral methods</span>
+      <span class="b b--soft">English</span>
+      <span class="b b--soft">Russian</span>
+      <span class="b b--soft">Hebrew (basic)</span>
+      <span class="b b--soft">French (basic)</span>
+      <span class="b b--soft">Italian (basic)</span>
     </div>
 
     <div class="links">
