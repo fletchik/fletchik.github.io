@@ -50,8 +50,11 @@
   .role{ font-size:.95rem; color:var(--body); font-weight:500; margin-bottom:.2rem; }
   .tag{ font-size:.82rem; color:var(--muted); letter-spacing:.01em; }
 
-  .bio{ margin-bottom:2.4rem; }
+  .bio{ margin-bottom:1.15rem; }
   .bio p{ margin:0 0 .9rem; }
+  .cta{ margin:0 0 2.4rem; font-size:.95rem; }
+  .cta a{ font-weight:500; }
+  .cta a.primary{ font-weight:600; }
   a{ color:var(--accent); text-decoration:none; }
   a:hover{ color:var(--accent-d); }
 
@@ -98,7 +101,9 @@
 
   @media(max-width:560px){
     .item, .pub, .sk{ flex-direction:column; gap:.15rem; }
-    .item .when, .pub .year, .sk .lbl{ padding-top:0; }
+    /* flex-basis follows the main axis: in a column it would force a ~98px tall
+       meta row and leave a dead gap above the title. */
+    .item .when, .pub .year, .sk .lbl{ flex:0 0 auto; padding-top:0; }
   }
   @media(max-width:460px){
     .top{ gap:1rem; } .photo{ width:5.5rem; height:5.5rem; }
@@ -120,18 +125,26 @@
 
     <div class="bio">
       <p>
-        Hi! I&rsquo;m Varvara &mdash; I do machine learning somewhere between research
-        and things that actually have to run: spectral methods, representation learning
-        and neural eigenfunctions on one side, pricing models and messy production data
-        on the other.
+        Hi! I&rsquo;m Varvara &mdash; I build machine learning somewhere between research
+        and things that actually have to work: spectral representation learning and neural
+        eigenfunctions on one side, pricing models, LLM workflows, and messy real-world
+        data on the other.
       </p>
 
       <p>
-        PIEFS started as my thesis and is now at the ICML&nbsp;2026 AI4Physics Workshop.
-        These days I&rsquo;m looking for ML&nbsp;/ AI engineering and applied research
-        roles in Israel.
+        I like taking open-ended problems from &ldquo;we should probably do something with
+        this&rdquo; to experiments, models, and tools people actually use. I&rsquo;m now
+        looking for early-career AI/ML engineering, applied data science, solutions, or
+        applied research opportunities in Israel.
       </p>
     </div>
+
+    <p class="cta">
+      Met me at AWS Summit? Let&rsquo;s stay in touch :)<br />
+      <a class="primary" href="https://www.linkedin.com/in/varuuu/">connect on LinkedIn</a>
+      &middot;
+      <a href="cv.pdf">download CV</a>
+    </p>
 
     <section class="section">
       <h2>Experience</h2>
@@ -142,8 +155,8 @@
           <div class="what">ML / Data Analyst &mdash; Pricing &amp; Market Intelligence</div>
           <div class="org">Global commodities producer <span class="note">&middot; name on request</span></div>
           <div class="desc">
-            Price indices, a liquidity matrix and ML models for pricing, segmentation and
-            anomaly detection, over ~30&nbsp;GB of market data. Python, PostgreSQL, BI.
+            Price indices, a liquidity matrix, ML models, and internal tools used in ongoing
+            pricing and market analysis over ~30&nbsp;GB of market data. Python, PostgreSQL, BI.
           </div>
         </div>
       </div>
@@ -154,8 +167,9 @@
           <div class="what">Research Assistant, Machine Learning</div>
           <div class="org"><a href="https://www.hse.ru/en/">HSE University</a>, Faculty of Computer Science</div>
           <div class="desc">
-            PIEFS &mdash; spectral representation learning in PyTorch, built from scratch.
-            Beats the NeuralEF baseline by +7.4&nbsp;pp on MNIST with 16 learned features.
+            PIEFS &mdash; a spectral representation-learning method in PyTorch, designed and
+            built from scratch. First-author paper presented at the ICML&nbsp;2026
+            AI4Physics Workshop.
           </div>
         </div>
       </div>
@@ -200,8 +214,8 @@
         <div class="body">
           <div class="what">Lumni &mdash; LLM system for marketing-brief generation</div>
           <div class="desc">
-            A brand-DNA representation and retrieval layer, wired into Vertex AI workflows
-            and Supabase.
+            Built the brand-DNA representation, retrieval layer, and Vertex AI workflows.
+            <a href="https://lumniapp.com">product</a>
           </div>
         </div>
       </div>
