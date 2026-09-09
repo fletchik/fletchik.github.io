@@ -1,32 +1,70 @@
 # Personal homepage
 
-Single static page for GitHub Pages (user site). No framework, no build step.
+Two static pages for GitHub Pages (user site). No framework, no build step.
 
-## Files
-- `index.html` — the page.
-- `profile.jpg` — 600×600 headshot.
-- `cv.pdf` — optional; add it if you want the CV link to work.
+## Pages
 
-## Before publishing
-Fill in the `EDIT:` placeholders in `index.html`:
-- the `mailto:` email (appears twice: in the bio and in the links row)
-- `github`, `scholar`, `linkedin` links
-- add `cv.pdf` next to `index.html` (or delete the `cv` link)
+| URL | File | Purpose |
+|---|---|---|
+| `fletchik.github.io` | `index.html` | **Hiring.** AI/ML Engineer positioning: experience, skills, CV. This is the URL to give recruiters. |
+| `fletchik.github.io/research.html` | `research.html` | **Conferences.** The original academic page — bio, publications. Give this one at ICML / ICLR / poster sessions. |
 
-## Deploy to GitHub Pages (user site)
+Both share one design system: same CSS variables, same typography, same
+left-meta-column row layout. They should always look like siblings.
 
-A **user site** is served at `https://<username>.github.io` and deploys
-automatically from the default branch — no Actions, no Jekyll config needed.
+Snapshot of the original academic page: `git show academic-v1:index.html`.
 
-1. Create a repo named **exactly** `<username>.github.io` on GitHub (public).
-2. From this folder:
-   ```bash
-   git remote add origin git@github.com:<username>/<username>.github.io.git
-   git branch -M main
-   git push -u origin main
-   ```
-3. On GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a
-   branch → Branch: `main` / `root`**. (For user sites this is usually on by default.)
-4. Wait ~1 minute, then open `https://<username>.github.io`.
+### Swapping them before a conference
 
-To update later: edit files, then `git add -A && git commit -m "..." && git push`.
+If the academic page should temporarily sit at the root:
+
+```bash
+cp index.html hire.html && cp research.html index.html
+# and swap back afterwards
+```
+
+Remember to fix `<link rel="canonical">` and `og:url` in whichever file moves.
+
+## CV
+
+`cv.pdf` is built from `~/cv/cv_public.tex`:
+
+```bash
+cd ~/cv && latexmk -pdf cv_public.tex && cp cv_public.pdf ~/github_page/cv.pdf
+```
+
+**This repository is public. Two rules, no exceptions:**
+
+1. **Never commit the named employer.** The pricing role is published as
+   "Global commodities producer · name on request". The named variant stays
+   out of this repo entirely — git history is public and cannot be un-published.
+2. **No phone number in `cv.pdf`.** The file gets indexed by Google.
+
+Check before every commit that touches the CV:
+
+```bash
+# EMPLOYER = the real company name, PHONE = the number. Never hardcode them here:
+# this README is public too.
+PAT="$EMPLOYER|diamond|$PHONE"
+grep -riE "$PAT" . --exclude-dir=.git --exclude="*.pdf"
+pdftotext cv.pdf - | grep -iE "$PAT"
+```
+
+Both must return nothing.
+
+## Other files
+
+- `profile.jpg` — 600×600 headshot
+- `favicon.png`, `hse.png` — icons
+- `piefs-poster.pdf` — PIEFS poster, linked from both pages
+- `card/` — printable business card (`card-print.html` → `business-card.pdf`)
+
+## Deploy
+
+User site: served from the default branch, no Actions or Jekyll config needed.
+
+```bash
+git add -A && git commit -m "..." && git push
+```
+
+Live about a minute later at `https://fletchik.github.io`.

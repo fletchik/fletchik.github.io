@@ -4,20 +4,21 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Varvara Nazarenko</title>
-<meta name="description" content="Varvara Nazarenko — independent researcher in physics-informed machine learning. Author of PIEFS (ICML 2026 AI4Physics Workshop)." />
+<meta name="description" content="Varvara Nazarenko — AI/ML Engineer based in Israel. Applied machine learning on production data and representation-learning research; first author of PIEFS (ICML 2026 AI4Physics Workshop)." />
 
+<link rel="canonical" href="https://fletchik.github.io/" />
 <link rel="icon" type="image/png" href="favicon.png" />
 <link rel="apple-touch-icon" href="favicon.png" />
 
 <!-- Social share preview -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://fletchik.github.io/" />
-<meta property="og:title" content="Varvara Nazarenko" />
-<meta property="og:description" content="Independent researcher in physics-informed machine learning. Author of PIEFS (ICML 2026 AI4Physics Workshop)." />
+<meta property="og:title" content="Varvara Nazarenko — AI/ML Engineer" />
+<meta property="og:description" content="AI/ML Engineer in Israel. Applied ML on production data, representation-learning research, first author of PIEFS (ICML 2026)." />
 <meta property="og:image" content="https://fletchik.github.io/profile.jpg" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Varvara Nazarenko" />
-<meta name="twitter:description" content="Independent researcher in physics-informed machine learning." />
+<meta name="twitter:title" content="Varvara Nazarenko — AI/ML Engineer" />
+<meta name="twitter:description" content="AI/ML Engineer in Israel. Applied ML, representation-learning research, first author of PIEFS (ICML 2026)." />
 <meta name="twitter:image" content="https://fletchik.github.io/profile.jpg" />
 
 <!-- Photo: profile.jpg sits next to this file. -->
@@ -46,6 +47,7 @@
 
   h1{ font-weight:600; font-size:1.7rem; line-height:1.15; letter-spacing:-.02em;
     margin:0 0 .25rem; color:var(--ink); }
+  .role{ font-size:.95rem; color:var(--body); font-weight:500; margin-bottom:.2rem; }
   .tag{ font-size:.82rem; color:var(--muted); letter-spacing:.01em; }
 
   .bio{ margin-bottom:2.4rem; }
@@ -57,18 +59,32 @@
   .section h2{ font-size:.72rem; font-weight:600; letter-spacing:.11em;
     text-transform:uppercase; color:var(--muted);
     margin:0 0 1rem; padding-bottom:.5rem; border-bottom:1px solid var(--line); }
-  .interests{ margin:0; }
   .outro{ margin:2.4rem 0 0; padding-top:1.4rem; border-top:1px solid var(--line); }
 
+  /* shared row: left meta column + body — used by experience, publications, projects */
+  .item{ display:flex; gap:1rem; margin-bottom:1.45rem; }
+  .item:last-child{ margin-bottom:0; }
+  .item .when{ flex:0 0 6.1rem; font-size:.82rem; color:var(--muted); padding-top:.18rem; }
+  .item .body{ flex:1; }
+  .item .what{ font-weight:600; font-size:1rem; color:var(--ink); line-height:1.35; }
+  .item .org{ font-size:.88rem; color:var(--body); margin:.12rem 0 0; }
+  .item .note{ font-size:.82rem; color:var(--muted); }
+  .item .desc{ font-size:.93rem; line-height:1.55; margin-top:.3rem; }
+
   .pub{ display:flex; gap:1rem; margin-bottom:1.2rem; }
-  .pub .year{ flex:0 0 2.6rem; font-size:.82rem; color:var(--muted); padding-top:.12rem; }
+  .pub .year{ flex:0 0 6.1rem; font-size:.82rem; color:var(--muted); padding-top:.12rem; }
   .pub .body{ flex:1; }
   .pub .ptitle{ font-weight:600; font-size:1rem; color:var(--ink); line-height:1.35; }
   .pub .authors{ font-size:.9rem; color:var(--body); margin:.15rem 0 .05rem; }
-  .pub .authors .me{ color:inherit; font-weight:400; }
+  .pub .authors .me{ color:inherit; font-weight:600; }
   .pub .venue{ font-size:.86rem; color:var(--muted); }
   .pub .plinks{ margin-top:.3rem; font-size:.82rem; }
   .pub .plinks a{ margin-right:.9rem; }
+
+  .sk{ display:flex; gap:1rem; margin-bottom:.42rem; }
+  .sk:last-child{ margin-bottom:0; }
+  .sk .lbl{ flex:0 0 6.1rem; font-size:.82rem; color:var(--muted); padding-top:.1rem; }
+  .sk .val{ flex:1; font-size:.93rem; }
 
   .links{ display:flex; flex-wrap:wrap; gap:1.1rem; margin-top:1.8rem;
     font-size:.86rem; }
@@ -80,10 +96,13 @@
 
   footer{ margin-top:2.2rem; font-size:.76rem; color:var(--muted); }
 
+  @media(max-width:560px){
+    .item, .pub, .sk{ flex-direction:column; gap:.15rem; }
+    .item .when, .pub .year, .sk .lbl{ padding-top:0; }
+  }
   @media(max-width:460px){
     .top{ gap:1rem; } .photo{ width:5.5rem; height:5.5rem; }
     h1{ font-size:1.5rem; }
-    .pub{ flex-direction:column; gap:.2rem; } .pub .year{ padding-top:0; }
   }
 </style>
 </head>
@@ -94,24 +113,65 @@
       <img class="photo" src="profile.jpg" alt="Varvara Nazarenko" />
       <div>
         <h1>Varvara Nazarenko</h1>
+        <div class="role">AI/ML Engineer &middot; ICML author (PIEFS)</div>
+        <div class="tag">Tel Aviv / Haifa &middot; Israeli citizen &middot; open to hybrid</div>
       </div>
     </div>
 
     <div class="bio">
       <p>
-        Hi! I&rsquo;m Varvara, a research assistant interested in scientific machine
-        learning, spectral methods, representation learning, and neural eigenfunctions
-        &mdash; currently open to research roles in academic labs and industry
-        R&amp;D teams.
+        Hi! I&rsquo;m Varvara &mdash; I do machine learning somewhere between research
+        and things that actually have to run: spectral methods, representation learning
+        and neural eigenfunctions on one side, pricing models and messy production data
+        on the other.
       </p>
 
       <p>
-        I recently finished my BSc in Applied Mathematics and Computer Science at
-        <a href="https://www.hse.ru/en/">HSE University</a>. PIEFS started as my
-        bachelor&rsquo;s thesis, and now I&rsquo;m presenting it at the
-        ICML&nbsp;2026 AI4Physics Workshop.
+        PIEFS started as my thesis and is now at the ICML&nbsp;2026 AI4Physics Workshop.
+        These days I&rsquo;m looking for ML&nbsp;/ AI engineering and applied research
+        roles in Israel.
       </p>
     </div>
+
+    <section class="section">
+      <h2>Experience</h2>
+
+      <div class="item">
+        <div class="when">2025 &mdash; now</div>
+        <div class="body">
+          <div class="what">ML / Data Analyst &mdash; Pricing &amp; Market Intelligence</div>
+          <div class="org">Global commodities producer <span class="note">&middot; name on request</span></div>
+          <div class="desc">
+            Price indices, a liquidity matrix and ML models for pricing, segmentation and
+            anomaly detection, over ~30&nbsp;GB of market data. Python, PostgreSQL, BI.
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="when">2025 &mdash; now</div>
+        <div class="body">
+          <div class="what">Research Assistant, Machine Learning</div>
+          <div class="org"><a href="https://www.hse.ru/en/">HSE University</a>, Faculty of Computer Science</div>
+          <div class="desc">
+            PIEFS &mdash; spectral representation learning in PyTorch, built from scratch.
+            Beats the NeuralEF baseline by +7.4&nbsp;pp on MNIST with 16 learned features.
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="when">2024 &mdash; 2025</div>
+        <div class="body">
+          <div class="what">Machine Learning Research &mdash; Computational Biology</div>
+          <div class="org">Institute of Bioorganic Chemistry, Russian Academy of Sciences</div>
+          <div class="desc">
+            TCGA across 10 cancer cohorts, ~59K mRNA features &rarr; ~1.9K miRNA targets.
+            Spearman&nbsp;&rho;&nbsp;&asymp;&nbsp;0.8.
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="section">
       <h2>Publications</h2>
@@ -128,8 +188,40 @@
             <a href="https://arxiv.org/abs/2607.03692">arxiv</a>
             <a href="https://arxiv.org/pdf/2607.03692">pdf</a>
             <a href="piefs-poster.pdf">poster</a>
-            <!-- <a href="https://github.com/your-username/piefs">code</a> -->
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Also built</h2>
+      <div class="item">
+        <div class="when">2025</div>
+        <div class="body">
+          <div class="what">Lumni &mdash; LLM system for marketing-brief generation</div>
+          <div class="desc">
+            A brand-DNA representation and retrieval layer, wired into Vertex AI workflows
+            and Supabase.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Toolbox</h2>
+      <div class="sk"><div class="lbl">Code</div><div class="val">Python &middot; SQL &middot; C++ &middot; PyTorch &middot; scikit-learn &middot; pandas</div></div>
+      <div class="sk"><div class="lbl">Stack</div><div class="val">PostgreSQL &middot; Docker &middot; Git &middot; Vertex AI &middot; Weights &amp; Biases</div></div>
+      <div class="sk"><div class="lbl">Into</div><div class="val">Representation learning &middot; spectral &amp; geometric ML &middot; Bayesian methods &middot; diffusion</div></div>
+      <div class="sk"><div class="lbl">Speaks</div><div class="val">English &middot; Russian &middot; a bit of Hebrew and French</div></div>
+    </section>
+
+    <section class="section">
+      <h2>Education</h2>
+      <div class="item">
+        <div class="when">2022 &mdash; 2026</div>
+        <div class="body">
+          <div class="what">B.Sc. Applied Mathematics &amp; Computer Science, ML track</div>
+          <div class="org"><a href="https://www.hse.ru/en/">HSE University</a> <span class="note">&middot; GPA 8.56/10, top 5%</span></div>
         </div>
       </div>
     </section>
@@ -143,6 +235,10 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
         email
       </a>
+      <a href="cv.pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        cv
+      </a>
       <a href="https://www.linkedin.com/in/varuuu/">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0z"/></svg>
         linkedin
@@ -151,9 +247,9 @@
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v3.82L12 21l7-4v-3.82L12 17l-7-3.82z"/></svg>
         scholar
       </a>
-      <a class="hse" href="https://www.hse.ru/en/">
-        <img src="hse.png" alt="" />
-        HSE University
+      <a href="research.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        research page
       </a>
     </div>
 
