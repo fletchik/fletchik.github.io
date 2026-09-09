@@ -90,14 +90,46 @@
   .pub .plinks{ margin-top:.35rem; font-size:.82rem; }
   .pub .plinks a{ margin-right:.9rem; }
 
-  /* toolbox: chips, so it stops mirroring the entry layout */
-  .tb + .tb{ margin-top:.95rem; }
-  .tb .lbl{ font-size:.72rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--muted); margin-bottom:.4rem; }
-  .chips{ display:flex; flex-wrap:wrap; gap:.35rem; }
-  .chip{ font-size:.8rem; color:var(--body); background:var(--chip);
-    border:1px solid var(--line); border-radius:999px; padding:.17rem .62rem; }
-  .tb .plain{ font-size:.93rem; }
+  /* toolbox: one cloud of bubbles. tech is neutral, research reads warm,
+     spoken languages sit back. order carries the grouping, so no legend. */
+  .bubbles{ display:flex; flex-wrap:wrap; gap:.4rem; }
+  .b{ font-size:.82rem; color:var(--body); background:var(--chip);
+    border:1px solid var(--line); border-radius:999px; padding:.2rem .68rem;
+    transition:transform .18s cubic-bezier(.34,1.56,.64,1),
+               border-color .18s ease, background-color .18s ease, color .18s ease;
+    animation:pop .42s cubic-bezier(.34,1.56,.64,1) backwards;
+    animation-delay:calc(var(--i) * 18ms); cursor:default; }
+  .b:hover{ transform:translateY(-3px) rotate(-1.5deg); border-color:#D8D8D2;
+    background:#fff; }
+  .b--focus{ color:var(--accent-d); background:#FDF1ED; border-color:#F5D9D0; }
+  .b--focus:hover{ border-color:#EFC3B5; background:#fff; }
+  .b--soft{ color:var(--muted); background:transparent; }
+  .b--soft:hover{ color:var(--body); }
+
+  @keyframes pop{
+    from{ opacity:0; transform:translateY(6px) scale(.96); }
+    to{ opacity:1; transform:none; }
+  }
+  @keyframes rise{
+    from{ opacity:0; transform:translateY(8px); }
+    to{ opacity:1; transform:none; }
+  }
+  /* kept deliberately short: everything is on screen inside ~0.4s, so the page
+     never reads as blank to someone opening it on a phone */
+  .page > *{ animation:rise .3s ease backwards; }
+  .page > :nth-child(1){ animation-delay:0s }
+  .page > :nth-child(2){ animation-delay:.03s }
+  .page > :nth-child(3){ animation-delay:.06s }
+  .page > :nth-child(n+4){ animation-delay:.09s }
+
+  /* the arrow leans out when you reach for it */
+  .cta .primary .arw{ display:inline-block; transition:transform .18s ease; }
+  .cta .primary:hover .arw{ transform:translateX(3px); }
+
+  @media(prefers-reduced-motion:reduce){
+    .b, .page > *, .cta .primary .arw{ animation:none !important; transition:none !important; }
+    .b:hover{ transform:none; }
+  }
 
   .outro{ margin:2.6rem 0 0; padding-top:1.4rem; border-top:1px solid var(--line);
     font-size:.92rem; }
@@ -151,7 +183,7 @@
 
     <p class="cta">
       If we met at AWS Summit, hi again :) Building something thoughtful? Let&rsquo;s talk.<br />
-      <a class="primary" href="https://www.linkedin.com/in/varuuu/">LinkedIn</a>
+      <a class="primary" href="https://www.linkedin.com/in/varuuu/">LinkedIn <span class="arw">&rarr;</span></a>
     </p>
 
     <section class="section">
@@ -185,17 +217,26 @@
 
     <section class="section">
       <h2>Toolbox</h2>
-      <div class="tb">
-        <div class="lbl">Code</div>
-        <div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">C++</span><span class="chip">PyTorch</span><span class="chip">scikit-learn</span><span class="chip">pandas</span></div>
-      </div>
-      <div class="tb">
-        <div class="lbl">Stack</div>
-        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">Docker</span><span class="chip">Git</span><span class="chip">Vertex AI</span><span class="chip">Weights &amp; Biases</span></div>
-      </div>
-      <div class="tb">
-        <div class="lbl">Speaks</div>
-        <div class="plain">English &middot; Russian &middot; a bit of Hebrew and French</div>
+      <div class="bubbles">
+        <span class="b" style="--i:0">Python</span>
+        <span class="b" style="--i:1">SQL</span>
+        <span class="b" style="--i:2">C++</span>
+        <span class="b" style="--i:3">PyTorch</span>
+        <span class="b" style="--i:4">scikit-learn</span>
+        <span class="b" style="--i:5">pandas</span>
+        <span class="b" style="--i:6">PostgreSQL</span>
+        <span class="b" style="--i:7">Docker</span>
+        <span class="b" style="--i:8">Git</span>
+        <span class="b" style="--i:9">Vertex AI</span>
+        <span class="b" style="--i:10">Weights &amp; Biases</span>
+        <span class="b b--focus" style="--i:11">RL</span>
+        <span class="b b--focus" style="--i:12">geometry in ML</span>
+        <span class="b b--focus" style="--i:13">representation learning</span>
+        <span class="b b--focus" style="--i:14">spectral methods</span>
+        <span class="b b--soft" style="--i:15">English</span>
+        <span class="b b--soft" style="--i:16">Russian</span>
+        <span class="b b--soft" style="--i:17">Hebrew (basic)</span>
+        <span class="b b--soft" style="--i:18">French (basic)</span>
       </div>
     </section>
 
