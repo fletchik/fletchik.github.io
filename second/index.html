@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Varvara Nazarenko</title>
+<meta name="description" content="Varvara Nazarenko — AI/ML Engineer. From complex questions to useful ML." />
+
+<!-- draft kept alongside index.html for comparison; not for search -->
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/favicon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --paper:#FBFBFA; --ink:#1A1A1A; --body:#3A3A40; --muted:#8A8A8A; --line:#EAEAE7;
+    --navy:#1b3b72; --accent:#E24A2B; --accent-d:#BF3A1D;
+    --sans:"Inter",system-ui,-apple-system,sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{ margin:0; background:var(--paper); color:var(--body);
+    font-family:var(--sans); font-size:16.5px; line-height:1.72;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+
+  .page{ max-width:36rem; margin:0 auto; padding:clamp(2.4rem,8vw,4rem) 1.4rem 3.5rem; }
+
+  /* ---------- header: smaller photo, tighter block ---------- */
+  .top{ display:flex; gap:1rem; align-items:center; margin-bottom:2.2rem; }
+  .photo{ width:4rem; height:4rem; flex:0 0 auto; border-radius:50%; object-fit:cover;
+    border:1px solid var(--line); background:#eee; }
+  h1{ font-weight:600; font-size:1.35rem; line-height:1.2; letter-spacing:-.015em;
+    margin:0 0 .3rem; color:var(--ink); }
+  .role{ font-size:.7rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--body); line-height:1.5; margin-bottom:.42rem; }
+  .role span{ white-space:nowrap; }
+  .toplinks{ display:flex; align-items:center; gap:.75rem; font-size:.82rem; }
+  .toplinks a{ font-weight:500; }
+  .toplinks a.ic{ display:inline-flex; color:var(--muted); }
+  .toplinks a.ic svg{ display:block; }
+  .toplinks a.ic.li svg{ width:.92rem; height:.92rem; }
+  .toplinks a.ic.mail svg{ width:1.08rem; height:1.08rem; stroke-width:2.1; }
+
+  a{ color:var(--accent); text-decoration:none; }
+  a.uni{ color:var(--navy); font-weight:600; }
+  a.uni img{ width:.95rem; height:.95rem; border-radius:2px;
+    vertical-align:-.13em; margin-right:.28rem; }
+
+  /* ---------- the hook: the one line that is bigger than everything ---------- */
+  .hook{ font-size:1.62rem; line-height:1.28; font-weight:600; letter-spacing:-.02em;
+    color:var(--ink); margin:0 0 1rem; }
+
+  p{ margin:0 0 .95rem; }
+
+  /* the intro block and the credentials block are separated by space, not rules */
+  .credentials{ margin-top:2.6rem; }
+  .credentials p{ margin-bottom:1.05rem; }
+
+  /* ---------- tools: three quiet rows instead of a keyword cloud ---------- */
+  .tools{ margin-top:1.9rem; }
+  .tr{ display:flex; gap:1rem; font-size:.92rem; margin-bottom:.4rem; }
+  .tr:last-child{ margin-bottom:0; }
+  .tr .k{ flex:0 0 3.1rem; font-size:.72rem; font-weight:500; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); padding-top:.22rem; }
+  .tr .v{ flex:1; }
+
+  .links{ display:flex; flex-wrap:wrap; gap:1.1rem; margin-top:2.6rem;
+    padding-top:1.5rem; border-top:1px solid var(--line); font-size:.86rem; }
+  .links a{ display:inline-flex; align-items:center; gap:.4rem; }
+  .links svg{ width:1rem; height:1rem; flex:0 0 auto; }
+
+  footer{ margin-top:2rem; font-size:.76rem; color:var(--muted); }
+
+  @media(hover:hover){
+    a:hover{ color:var(--accent-d); }
+    a.uni:hover{ color:#0d2d62; }
+    .toplinks a.ic:hover{ color:var(--accent-d); }
+    .links a:hover{ text-decoration:none; }
+  }
+
+  @media(max-width:560px){
+    .hook{ font-size:1.42rem; }
+    .tr{ flex-direction:column; gap:.05rem; }
+    .tr .k{ flex:0 0 auto; padding-top:0; }
+  }
+  @media(max-width:360px){
+    .top{ flex-direction:column; align-items:flex-start; gap:.7rem; }
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+
+    <div class="top">
+      <img class="photo" src="/profile.jpg" alt="Varvara Nazarenko" />
+      <div>
+        <h1>Varvara Nazarenko</h1>
+        <div class="role"><span>AI/ML Engineer</span> &middot; <span>AI Solutions Architect</span></div>
+        <div class="toplinks">
+          <a href="/resume.pdf">resume</a>
+          <a class="ic li" href="https://www.linkedin.com/in/varuuu/" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a class="ic mail" href="mailto:varunaza@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="hook">From complex questions to useful ML.</p>
+
+    <p>
+      I work where ML meets business &mdash; turning open-ended questions into models,
+      data products, and solutions that work in practice.
+    </p>
+
+    <p>
+      AWS Summit brought you here? Hi&nbsp;:) Building something thoughtful?
+      <a href="https://www.linkedin.com/in/varuuu/">Let&rsquo;s talk</a>.
+    </p>
+
+    <div class="credentials">
+      <p>
+        Right now I work in pricing and market intelligence at a diamond mining company,
+        partnering with business stakeholders to build ML models, price indices, and
+        internal analytical tools.
+      </p>
+
+      <p>
+        I&rsquo;m the first author of
+        <a href="https://arxiv.org/abs/2607.03692">PIEFS</a>, a spectral
+        representation-learning method presented at the ICML&nbsp;2026 AI4Physics
+        Workshop. Research-wise, I&rsquo;m into RL and geometry in ML.
+      </p>
+
+      <p>
+        For Lumni, I designed the brand-DNA retrieval layer and built Vertex AI workflows
+        for brand enrichment and marketing-brief generation.
+      </p>
+
+      <p>
+        BSc in Applied Maths &amp; CS,
+        <a class="uni" href="https://www.hse.ru/en/"><img src="/hse.png" alt="" />HSE
+        University</a> &middot; top 5% in my final semester.
+      </p>
+
+      <div class="tools">
+        <div class="tr"><div class="k">ML</div><div class="v">PyTorch &middot; scikit-learn &middot; Hugging Face</div></div>
+        <div class="tr"><div class="k">Data</div><div class="v">Python &middot; SQL &middot; PostgreSQL</div></div>
+        <div class="tr"><div class="k">Build</div><div class="v">Docker &middot; Vertex AI &middot; Supabase</div></div>
+        <div class="tr"><div class="k">Speaks</div><div class="v">English &middot; Russian</div></div>
+      </div>
+    </div>
+
+    <div class="links">
+      <a href="mailto:varunaza@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        email
+      </a>
+      <a href="https://www.linkedin.com/in/varuuu/">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0z"/></svg>
+        linkedin
+      </a>
+      <a href="tel:+972533886817">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        053-388-6817
+      </a>
+    </div>
+
+    <footer>&copy; 2026 Varvara Nazarenko</footer>
+
+  </main>
+</body>
+</html>
