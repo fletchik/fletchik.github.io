@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Varvara Nazarenko</title>
+<meta name="description" content="Varvara Nazarenko — AI/ML Engineer based in Israel. Applied machine learning on production data and representation-learning research; first author of PIEFS (ICML 2026 AI4Physics Workshop)." />
+
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/favicon.png" />
+
+<!-- Social share preview -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://fletchik.github.io/" />
+<meta property="og:title" content="Varvara Nazarenko — AI/ML Engineer" />
+<meta property="og:description" content="AI/ML Engineer in Israel. Applied ML on production data, representation-learning research, first-author PIEFS paper at the ICML 2026 AI4Physics Workshop." />
+<meta property="og:image" content="https://fletchik.github.io/profile.jpg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Varvara Nazarenko — AI/ML Engineer" />
+<meta name="twitter:description" content="AI/ML Engineer in Israel. Applied ML, representation-learning research, first-author PIEFS paper at the ICML 2026 AI4Physics Workshop." />
+<meta name="twitter:image" content="https://fletchik.github.io/profile.jpg" />
+
+<!-- Photo: profile.jpg sits next to this file. -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --paper:#FBFBFA; --ink:#1A1A1A; --body:#3A3A40; --muted:#8A8A8A; --line:#EAEAE7;
+    --chip:#F1F1EE;
+    --navy:#1b3b72;        /* sampled from hse.png, so text matches the mark */ --accent:#E24A2B; --accent-d:#BF3A1D;
+    --sans:"Inter",system-ui,-apple-system,sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{ margin:0; background:var(--paper); color:var(--body);
+    font-family:var(--sans); font-size:16.5px; line-height:1.72;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+
+  .page{ max-width:38rem; margin:0 auto; padding:clamp(2.6rem,9vw,4.5rem) 1.4rem 3.5rem; }
+
+  .top{ display:flex; gap:1.25rem; align-items:center; margin-bottom:2.1rem; }
+  .photo{ width:6.5rem; height:6.5rem; flex:0 0 auto; border-radius:50%; object-fit:cover;
+    border:1px solid var(--line); background:#eee; }
+
+  h1{ font-weight:600; font-size:1.7rem; line-height:1.15; letter-spacing:-.02em;
+    margin:0 0 .45rem; color:var(--ink); }
+
+  .role{ font-size:.72rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--body); line-height:1.55; margin-bottom:.55rem; }
+  .role span{ white-space:nowrap; }
+
+  .toplinks{ display:flex; align-items:center; gap:.8rem; font-size:.84rem; }
+  .toplinks a{ font-weight:500; }
+  .toplinks a.ic{ display:inline-flex; color:var(--muted); }
+  .toplinks a.ic svg{ display:block; }
+  .toplinks a.ic.li svg{ width:.95rem; height:.95rem; }
+  .toplinks a.ic.mail svg{ width:1.12rem; height:1.12rem; stroke-width:2.1; }
+
+  a{ color:var(--accent); text-decoration:none; }
+  a.uni{ color:var(--navy); font-weight:600; }
+  .accent{ color:var(--accent); font-weight:600; }
+
+  .refs{ display:block; margin-top:.35rem; font-size:.84rem; }
+  .refs a{ color:var(--muted); margin-right:.85rem;
+    text-decoration:underline; text-underline-offset:.16em; text-decoration-thickness:1px; }
+
+  /* the one explicit action on the page */
+  .badge{ display:inline-flex; align-items:center; gap:.45rem;
+    font-size:.86rem; font-weight:600; color:var(--accent-d);
+    background:#FDF1ED; border:1px solid #F5D9D0; border-radius:999px;
+    padding:.34rem .9rem; margin:0 0 2.1rem; }
+  .badge svg{ width:.95rem; height:.95rem; }
+
+  p{ margin:0 0 1.05rem; }
+
+  .bubbles{ display:flex; flex-wrap:wrap; gap:.4rem; margin:0 0 1.15rem; }
+  .b{ font-size:.82rem; color:var(--body); background:var(--chip);
+    border:1px solid var(--line); border-radius:999px; padding:.2rem .68rem; }
+  .b--focus{ color:var(--accent-d); background:#FDF1ED; border-color:#F5D9D0; }
+  .b--soft{ color:var(--muted); background:transparent; }
+
+  .cta{ margin-top:1.6rem; margin-bottom:.9rem; }
+
+  /* pills, grouped and labelled */
+  .pills{ margin-top:1.9rem; }
+  .pg + .pg{ margin-top:1.05rem; }
+  .pg .pl{ font-size:.72rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--muted); margin-bottom:.42rem; }
+  .bubbles{ margin-bottom:0; }
+
+  .links{ display:flex; flex-wrap:wrap; gap:1.1rem; margin-top:2.6rem;
+    padding-top:1.5rem; border-top:1px solid var(--line); font-size:.86rem; }
+  .links a{ display:inline-flex; align-items:center; gap:.4rem; }
+  .links svg{ width:1rem; height:1rem; flex:0 0 auto; }
+
+  footer{ margin-top:2rem; font-size:.76rem; color:var(--muted); }
+
+  /* desktop-only extras; nothing depends on them */
+  @media(hover:hover){
+    a:hover{ color:var(--accent-d); text-decoration:underline;
+      text-underline-offset:.18em; text-decoration-thickness:1px; }
+    .links a:hover{ text-decoration:none; }
+    .toplinks a.ic:hover{ color:var(--accent-d); }
+    .b:hover{ background:#fff; border-color:#D8D8D2; }
+    .refs a:hover{ color:var(--body); }
+    .badge:hover{ background:#fff; }
+    a.uni:hover{ color:#0d2d62; }
+  }
+
+
+  @media(max-width:460px){
+    .top{ gap:.9rem; } .photo{ width:4.5rem; height:4.5rem; }
+    h1{ font-size:1.5rem; }
+  }
+  @media(max-width:360px){
+    .top{ flex-direction:column; align-items:flex-start; gap:.8rem; }
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+
+    <div class="top">
+      <img class="photo" src="/profile.jpg" alt="Varvara Nazarenko" />
+      <div>
+        <h1>Varvara Nazarenko</h1>
+        <div class="role"><span>AI/ML Engineer</span> &middot; <span>AI Solutions Architect</span></div>
+        <div class="toplinks">
+          <a href="/resume.pdf">resume</a>
+          <a class="ic li" href="https://www.linkedin.com/in/varuuu/" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a class="ic mail" href="mailto:varunaza@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p>
+      Hi! I&rsquo;m Varvara. I work at the intersection of ML and business, bringing
+      mathematical rigor and an engineering mindset to open-ended problems. I take them
+      from framing the question to building the model &mdash; and the tools around it.
+    </p>
+
+    <p>
+      I&rsquo;m the first author of <a href="https://arxiv.org/abs/2607.03692">PIEFS</a>,
+      a spectral representation-learning paper presented at the ICML&nbsp;2026 AI4Physics
+      Workshop. Research-wise, I&rsquo;m into RL and geometry in ML.
+      <span class="refs">
+        <a href="https://arxiv.org/abs/2607.03692">arxiv</a>
+        <a href="https://arxiv.org/pdf/2607.03692">pdf</a>
+        <a href="/piefs-poster.pdf">poster</a>
+      </span>
+    </p>
+
+    <p class="cta">
+      I&rsquo;m looking for my next AI/ML team. If we met at AWS Summit, hi again :)
+      <span class="accent">Let&rsquo;s talk.</span>
+    </p>
+
+    <a class="badge" href="https://www.linkedin.com/in/varuuu/"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+
+    <p>
+      Right now, I work in pricing and market intelligence at a diamond mining company,
+      partnering with business stakeholders to build price indices, ML models, and
+      internal analytical tools.
+    </p>
+
+    <p>
+      BSc in Applied Maths &amp; CS from
+      <a class="uni" href="https://www.hse.ru/en/">HSE University</a> &middot;
+      final-semester GPA 8.56/10, top 5%.
+    </p>
+
+    <div class="pills">
+      <div class="pg">
+        <div class="pl">Technical</div>
+        <div class="bubbles"><span class="b">Python</span><span class="b">SQL</span><span class="b">C++</span><span class="b">PyTorch</span><span class="b">scikit-learn</span><span class="b">Hugging Face</span><span class="b">PostgreSQL</span><span class="b">Docker</span><span class="b">Vertex AI</span><span class="b">Supabase</span></div>
+      </div>
+      <div class="pg">
+        <div class="pl">Research</div>
+        <div class="bubbles"><span class="b b--focus">RL</span><span class="b b--focus">geometry in ML</span><span class="b b--focus">representation learning</span><span class="b b--focus">spectral methods</span></div>
+      </div>
+      <div class="pg">
+        <div class="pl">Languages</div>
+        <div class="bubbles"><span class="b b--soft">English</span><span class="b b--soft">Russian</span></div>
+      </div>
+    </div>
+
+    <div class="links">
+      <a href="mailto:varunaza@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        email
+      </a>
+      <a href="https://www.linkedin.com/in/varuuu/">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0z"/></svg>
+        linkedin
+      </a>
+      <a href="tel:+972533886817">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        053-388-6817
+      </a>
+    </div>
+
+    <footer>&copy; 2026 Varvara Nazarenko</footer>
+
+  </main>
+
+</body>
+</html>
