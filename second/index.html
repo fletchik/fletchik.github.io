@@ -57,6 +57,7 @@
   .toplinks a{ font-weight:500; }
   .toplinks a.ic{ display:inline-flex; color:var(--muted); }
   .toplinks a.ic.li{ color:var(--navy); }
+  .toplinks a.ic.mail{ color:var(--accent); }
   .toplinks a.ic svg{ display:block; }
   .toplinks a.ic.li svg{ width:.95rem; height:.95rem; }
   .toplinks a.ic.mail svg{ width:1.12rem; height:1.12rem; stroke-width:2.1; }
@@ -64,9 +65,10 @@
   a{ color:var(--accent); text-decoration:none; }
   a.uni{ color:var(--navy); font-weight:600; }
 
-  .refs{ display:block; margin-top:.35rem; font-size:.84rem; }
-  .refs a{ color:var(--muted); margin-right:.85rem;
+  .refs{ font-size:.84rem; white-space:nowrap; }
+  .refs a{ color:var(--muted); margin-left:.55rem;
     text-decoration:underline; text-underline-offset:.16em; text-decoration-thickness:1px; }
+  .em{ color:var(--ink); font-weight:600; }
 
   /* the one explicit action on the page */
   .badge{ display:inline-flex; align-items:center; gap:.45rem;
@@ -148,14 +150,10 @@
     </p>
 
     <p>
-      I&rsquo;m the first author of <a href="https://arxiv.org/abs/2607.03692">PIEFS</a>,
-      a spectral representation-learning paper presented at the ICML&nbsp;2026 AI4Physics
-      Workshop. Research-wise, I&rsquo;m into RL and geometry in ML.
-      <span class="refs">
-        <a href="https://arxiv.org/abs/2607.03692">arxiv</a>
-        <a href="https://arxiv.org/pdf/2607.03692">pdf</a>
-        <a href="/piefs-poster.pdf">poster</a>
-      </span>
+      I&rsquo;m the <span class="em">first author</span> of PIEFS, a spectral
+      representation-learning paper presented at the
+      <span class="em">ICML&nbsp;2026 AI4Physics Workshop</span>. Research-wise, I&rsquo;m
+      into RL and geometry in ML.<span class="refs"><a href="https://arxiv.org/abs/2607.03692">arxiv</a><a href="/piefs-poster.pdf">poster</a></span>
     </p>
 
     <p class="cta">
