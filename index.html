@@ -56,14 +56,27 @@
   .toplinks{ display:flex; align-items:center; gap:.8rem; font-size:.84rem; }
   .toplinks a{ font-weight:500; }
   .toplinks a.ic{ display:inline-flex; color:var(--muted); }
+  .toplinks a.ic.li{ color:var(--navy); }
+  .toplinks a.ic.mail{ color:var(--accent); }
   .toplinks a.ic svg{ display:block; }
   .toplinks a.ic.li svg{ width:.95rem; height:.95rem; }
   .toplinks a.ic.mail svg{ width:1.12rem; height:1.12rem; stroke-width:2.1; }
 
   a{ color:var(--accent); text-decoration:none; }
   a.uni{ color:var(--navy); font-weight:600; }
-  a.uni img{ width:.95rem; height:.95rem; border-radius:2px;
-    vertical-align:-.13em; margin-right:.28rem; }
+
+  .refs{ font-size:.84rem; white-space:nowrap; }
+  .refs a{ color:var(--muted); margin-left:.55rem;
+    text-decoration:underline; text-underline-offset:.16em; text-decoration-thickness:1px; }
+  .em{ color:var(--ink); font-weight:600; }
+  em{ font-style:italic; color:var(--muted); }
+
+  /* the one explicit action on the page */
+  .badge{ display:inline-flex; align-items:center; gap:.45rem;
+    font-size:.86rem; font-weight:600; color:var(--accent-d);
+    background:#FDF1ED; border:1px solid #F5D9D0; border-radius:999px;
+    padding:.34rem .9rem; margin:0 0 2.1rem; }
+  .badge svg{ width:.95rem; height:.95rem; }
 
   p{ margin:0 0 1.05rem; }
 
@@ -73,8 +86,14 @@
   .b--focus{ color:var(--accent-d); background:#FDF1ED; border-color:#F5D9D0; }
   .b--soft{ color:var(--muted); background:transparent; }
 
-  .cta{ margin-top:1.6rem; margin-bottom:2.3rem; }
-  .cta a{ font-weight:600; }
+  .cta{ margin-top:1.6rem; margin-bottom:.9rem; }
+
+  /* pills, grouped and labelled */
+  .pills{ margin-top:1.9rem; }
+  .pg + .pg{ margin-top:1.05rem; }
+  .pg .pl{ font-size:.72rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--muted); margin-bottom:.42rem; }
+  .bubbles{ margin-bottom:0; }
 
   .links{ display:flex; flex-wrap:wrap; gap:1.1rem; margin-top:2.6rem;
     padding-top:1.5rem; border-top:1px solid var(--line); font-size:.86rem; }
@@ -89,7 +108,10 @@
       text-underline-offset:.18em; text-decoration-thickness:1px; }
     .links a:hover{ text-decoration:none; }
     .toplinks a.ic:hover{ color:var(--accent-d); }
+    .toplinks a.ic.li:hover{ color:#0d2d62; }
     .b:hover{ background:#fff; border-color:#D8D8D2; }
+    .refs a:hover{ color:var(--body); }
+    .badge:hover{ background:#fff; }
     a.uni:hover{ color:#0d2d62; }
   }
 
@@ -124,58 +146,51 @@
     </div>
 
     <p>
-      Hi! I&rsquo;m Varvara. I work at the intersection of ML and business,
-      bringing mathematical rigor and an engineering mindset to open-ended problems
-      &mdash; from framing the question to building the model and the tools around it.
+      Hi! I&rsquo;m Varvara. I work where ML meets business, turning open-ended problems
+      into practical solutions.
     </p>
 
     <p>
-      I&rsquo;m the first author of <a href="https://arxiv.org/abs/2607.03692">PIEFS</a>,
-      presented at the ICML&nbsp;2026 AI4Physics Workshop. Research-wise, I&rsquo;m into
-      RL and geometry in ML.
+      I&rsquo;m the <span class="em">first author</span> of PIEFS, a spectral
+      representation-learning paper presented at the
+      <span class="em">ICML&nbsp;2026 AI4Physics Workshop</span>.<span class="refs"><a href="https://arxiv.org/abs/2607.03692">arxiv</a><a href="piefs-poster.pdf">poster</a></span>
+    </p>
+
+    <p>
+      Research-wise, I&rsquo;m into RL and geometry in ML.
     </p>
 
     <p class="cta">
-      If we met at AWS Summit, hi again :) Building something thoughtful?
-      <a href="https://www.linkedin.com/in/varuuu/">Let&rsquo;s talk&nbsp;&rarr;</a>
+      I&rsquo;m looking for my next AI/ML team. If we met at AWS Summit, hi again :)
+    </p>
+
+    <a class="badge" href="https://www.linkedin.com/in/varuuu/"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+
+    <p>
+      Right now, I work in pricing and market intelligence at a diamond mining company,
+      partnering with business stakeholders to build price indices, ML models, and
+      internal analytical tools.
     </p>
 
     <p>
-      I graduated from <a class="uni" href="https://www.hse.ru/en/"><img src="hse.png" alt="" />HSE
-      University</a> in Applied Maths and CS, finishing my last semester at 8.56/10,
-      top 5%.
+      BSc in Applied Maths &amp; CS from
+      <a class="uni" href="https://www.hse.ru/en/">HSE University</a>, Moscow<br />
+      <em>final-semester GPA 8.56/10, top 5%.</em>
     </p>
 
-    <p>
-      Right now I work on pricing and market intelligence at a diamond mining company,
-      building price indices, a liquidity matrix, ML models and internal tools over
-      ~30&nbsp;GB of market data.
-    </p>
-
-    <div class="bubbles">
-      <span class="b">Python</span>
-      <span class="b">SQL</span>
-      <span class="b">C++</span>
-      <span class="b">PyTorch</span>
-      <span class="b">scikit-learn</span>
-      <span class="b">Hugging Face</span>
-      <span class="b">NumPy</span>
-      <span class="b">pandas</span>
-      <span class="b">Polars</span>
-      <span class="b">PostgreSQL</span>
-      <span class="b">Docker</span>
-      <span class="b">Git</span>
-      <span class="b">Hydra</span>
-      <span class="b">Vertex AI</span>
-      <span class="b">Supabase</span>
-      <span class="b">Weights &amp; Biases</span>
-      <span class="b">Power BI</span>
-      <span class="b b--focus">RL</span>
-      <span class="b b--focus">geometry in ML</span>
-      <span class="b b--focus">representation learning</span>
-      <span class="b b--focus">spectral methods</span>
-      <span class="b b--soft">English</span>
-      <span class="b b--soft">Russian</span>
+    <div class="pills">
+      <div class="pg">
+        <div class="pl">Technical</div>
+        <div class="bubbles"><span class="b">Python</span><span class="b">SQL</span><span class="b">C++</span><span class="b">PyTorch</span><span class="b">scikit-learn</span><span class="b">Hugging Face</span><span class="b">PostgreSQL</span><span class="b">Docker</span><span class="b">Vertex AI</span><span class="b">Supabase</span></div>
+      </div>
+      <div class="pg">
+        <div class="pl">Research</div>
+        <div class="bubbles"><span class="b b--focus">RL</span><span class="b b--focus">geometry in ML</span><span class="b b--focus">representation learning</span><span class="b b--focus">spectral methods</span></div>
+      </div>
+      <div class="pg">
+        <div class="pl">Languages</div>
+        <div class="bubbles"><span class="b b--soft">English</span><span class="b b--soft">Russian</span></div>
+      </div>
     </div>
 
     <div class="links">
