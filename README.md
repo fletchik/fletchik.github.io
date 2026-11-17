@@ -1,42 +1,27 @@
 # Personal homepage
 
-Two static pages for GitHub Pages (user site). No framework, no build step.
+One static page for GitHub Pages (user site). No framework, no build step.
 
-## Pages
+| URL | File |
+|---|---|
+| `fletchik.github.io` | `index.html` |
 
-| URL | File | Purpose |
-|---|---|---|
-| `fletchik.github.io` | `index.html` | **Hiring.** AI/ML Engineer positioning: experience, skills, CV. This is the URL to give recruiters. |
-| `fletchik.github.io/research.html` | `research.html` | **Conferences.** The original academic page — bio, publications. Give this one at ICML / ICLR / poster sessions. |
-
-Both share one design system: same CSS variables, same typography, same
-left-meta-column row layout. They should always look like siblings.
-
-Snapshot of the original academic page: `git show academic-v1:index.html`.
-
-### Swapping them before a conference
-
-If the academic page should temporarily sit at the root:
-
-```bash
-cp index.html hire.html && cp research.html index.html
-# and swap back afterwards
-```
-
-Remember to fix `<link rel="canonical">` and `og:url` in whichever file moves.
+The former conference page (`research.html`) and the business card (`card/`)
+were removed on 17.11.2026; both are in git history if ever needed.
 
 ## CV
 
-`resume.pdf` is built from `~/cv/cv_public.tex`:
+`resume.pdf` is the public variant built by
+`~/master/job-search/google-search-user-trust-2026-11-13/build_cv_variants.py`
+(variant `Public`: no employer name, no phone):
 
 ```bash
-cd ~/cv && latexmk -pdf cv_public.tex \
-  && cp cv_public.pdf ~/github_page/resume.pdf \
-  && cp cv_public.pdf ~/github_page/cv.pdf
+cp ~/master/output/pdf/Varvara_Nazarenko_CV_public.pdf ~/github_page/resume.pdf \
+  && cp ~/github_page/resume.pdf ~/github_page/cv.pdf
 ```
 
 `cv.pdf` is the same file under its old name, kept so links already handed out
-keep working. Drop it once you are sure none are in circulation.
+keep working.
 
 **This repository is public. Two rules, no exceptions:**
 
@@ -61,8 +46,7 @@ Both must return nothing.
 
 - `profile.jpg` — 600×600 headshot
 - `favicon.png`, `hse.png` — icons
-- `piefs-poster.pdf` — PIEFS poster, linked from both pages
-- `card/` — printable business card (`card-print.html` → `business-card.pdf`)
+- `piefs-poster.pdf` — PIEFS poster, linked from the page
 
 ## Deploy
 
