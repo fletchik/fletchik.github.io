@@ -13,7 +13,7 @@ were removed on 17.11.2026; both are in git history if ever needed.
 
 `resume.pdf` is the public variant built by
 `~/master/job-search/google-search-user-trust-2026-11-13/build_cv_variants.py`
-(variant `Public`: no employer name, no phone):
+(variant `Public`: no employer name; the phone number is shown):
 
 ```bash
 cp ~/master/output/pdf/Varvara_Nazarenko_CV_public.pdf ~/github_page/resume.pdf \
@@ -23,19 +23,18 @@ cp ~/master/output/pdf/Varvara_Nazarenko_CV_public.pdf ~/github_page/resume.pdf 
 `cv.pdf` is the same file under its old name, kept so links already handed out
 keep working.
 
-**This repository is public. Two rules, no exceptions:**
+**This repository is public. One rule, no exceptions:**
 
-1. **Never commit the named employer.** The pricing role is published as
-   "Global commodities producer · name on request". The named variant stays
-   out of this repo entirely — git history is public and cannot be un-published.
-2. **No phone number in `cv.pdf`.** The file gets indexed by Google.
+**Never commit the named employer.** The pricing role is published as
+"global commodities producer" / "Confidential Employer (NDA)". The named
+variant stays out of this repo entirely — git history is public and cannot be
+un-published. (The phone number is shown on purpose since 17.11.2026.)
 
 Check before every commit that touches the resume:
 
 ```bash
-# EMPLOYER = the real company name, PHONE = the number. Never hardcode them here:
-# this README is public too.
-PAT="$EMPLOYER|diamond|$PHONE"
+# EMPLOYER = the real company name. Never hardcode it here: this README is public too.
+PAT="$EMPLOYER|diamond"
 grep -riE "$PAT" . --exclude-dir=.git --exclude="*.pdf"
 pdftotext resume.pdf - | grep -iE "$PAT"
 ```
